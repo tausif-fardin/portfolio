@@ -1,9 +1,7 @@
-import Image from 'next/image';
-
 export default function Home() {
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-      <div className='relative flex flex-col items-center'>
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <div className="relative flex flex-col items-center">
         <p>
           Grab your sense of humor and fasten your seatbelt because we&#39;re
           about to dive headfirst into a whimsical world of projects, skills,
@@ -14,16 +12,14 @@ export default function Home() {
         </p>
       </div>
 
-      <div className='mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left'>
+      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
         <a
-          href='#'
-          className='group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30'
-          target='_blank'
-          rel='noopener noreferrer'
+          href="/skills"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Skills{' '}
-            <span className='inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none'>
+            Skills{" "}
+            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
           </h2>
@@ -33,14 +29,14 @@ export default function Home() {
         </a>
 
         <a
-          href='#'
-          className='group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30'
-          target='_blank'
-          rel='noopener noreferrer'
+          href="#"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Projects{' '}
-            <span className='inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none'>
+            Projects{" "}
+            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
           </h2>
@@ -50,14 +46,14 @@ export default function Home() {
         </a>
 
         <a
-          href='#'
-          className='group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30'
-          target='_blank'
-          rel='noopener noreferrer'
+          href="#"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Resume{' '}
-            <span className='inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none'>
+            Resume{" "}
+            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
           </h2>
@@ -67,14 +63,14 @@ export default function Home() {
         </a>
 
         <a
-          href='#'
-          className='group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30'
-          target='_blank'
-          rel='noopener noreferrer'
+          href="#"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Contact{' '}
-            <span className='inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none'>
+            Contact{" "}
+            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
           </h2>
