@@ -1,15 +1,10 @@
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="relative flex flex-col items-center">
-        <p>
-          Grab your sense of humor and fasten your seatbelt because we&#39;re
-          about to dive headfirst into a whimsical world of projects, skills,
-          and the occasional quirky anecdote. So, sit back, relax, and let&#39;s
-          have some fun as we navigate this virtual wonderland together!
-          Remember, laughter is the best debugging tool, so prepare to LOL your
-          way through my portfolio. Enjoy the ride!
-        </p>
+      <div className="w-max self-start">
+        <h1 className="animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 text-5xl text-gray-400 font-bold">
+          Hi, It&apos;s Tausif
+        </h1>
       </div>
 
       <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
