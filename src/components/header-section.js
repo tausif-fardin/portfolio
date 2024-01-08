@@ -3,8 +3,8 @@ import Link from "next/link";
 
 const HeaderSection = () => {
   return (
-    <div className="flex h-screen flex-col items-start justify-start">
-      <p className=" border-r-4 border-r-white pr-5 text-xl text-gray-500 font-bold mt-5">
+    <div className="flex flex-col items-start justify-start">
+      <p className="border-r-4 border-r-white pr-5 text-xl text-gray-500 font-bold mt-5">
         Hi, my name is
       </p>
       <h1 className="mt-5 animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 text-5xl text-gray-700 font-bold">
