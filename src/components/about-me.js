@@ -3,13 +3,13 @@ import Image from "next/image";
 
 const AboutMe = () => {
   return (
-    <div className="flex flex-row items-center justify-center gap-5">
-      <div className="w-2/3 flex flex-col p-4 bg-slate-200 rounded-md shadow-md items-start justify-center">
+    <div className="flex lg:flex-row mf:flex-row flex-col items-center justify-around gap-3">
+      <div className="lg:w-2/3 md:w-1/2 w-full flex flex-col p-4 bg-slate-200 rounded-md shadow-md items-start justify-center">
         <h1>
           Hello, world! I&apos;m Tausif, a digital architect crafting code with
           passion.
         </h1>
-
+        <br />
         <p>
           I&apos;m a tech enthusiast with a deep fascination for web
           development, machine learning, and the boundless possibilities of AI.
@@ -17,21 +17,21 @@ const AboutMe = () => {
           exploring the latest technological advancements or pondering the next
           big breakthrough.
         </p>
-
+        <br />
         <p>
-          I believe code is more than just lines of text; it&apos;s a powerful
+          I believe code is more than just lines of text, it&apos;s a powerful
           tool to create, innovate, and solve problems. I&apos;m driven by the
           challenge of crafting elegant solutions that seamlessly blend
           functionality with a seamless user experience.
         </p>
-
+        <br />
         <p>
           Ready to explore my digital creations? Dive into my portfolio and
           witness the magic of code in action!
         </p>
       </div>
 
-      <div className="w-2/3 justify-center flex items-center">
+      <div className="lg:w-2/3 md:w-1/2 w-full justify-center flex items-center">
         <Image
           className="rounded-md shadow-md"
           src="/dp.jpg"

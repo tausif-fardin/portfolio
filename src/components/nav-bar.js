@@ -6,12 +6,15 @@ import {
   AiOutlineMenu,
   AiOutlineInstagram,
   AiOutlineTwitter,
+  AiOutlineGithub,
   AiOutlineLinkedin,
 } from "react-icons/ai";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   // State to manage the navbar's visibility
   const [nav, setNav] = useState(false);
+  const router = useRouter();
 
   // Toggle function to handle the navbar's display
   const handleNav = () => {
@@ -38,7 +41,7 @@ const Navbar = () => {
           {navItems.map((item) => (
             <li
               key={item.id}
-              className="p-2 cursor-pointer duration-300 hover:text-gray-800"
+              className="p-2 cursor-pointer duration-300 hover:text-[#A3C6C4]"
             >
               {item.text}
             </li>
@@ -53,7 +56,7 @@ const Navbar = () => {
         <ul
           className={
             nav
-              ? "fixed md:hidden left-0 top-0 w-[50%] h-full border-r border-r-gray-900 bg-slate-300 ease-in-out duration-500"
+              ? "fixed md:hidden left-0 top-0 w-[50%] h-full border-r border-r-gray-900 bg-[#354649] ease-in-out duration-500"
               : "ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]"
           }
         >
@@ -64,7 +67,7 @@ const Navbar = () => {
           {navItems.map((item) => (
             <li
               key={item.id}
-              className="p-2 border-b rounded-xl duration-300 hover:text-gray-900 cursor-pointer border-gray-600"
+              className="p-2 border-b duration-300 hover:text-[#A3C6C4] cursor-pointer border-[#A3C6C4]"
             >
               {item.text}
             </li>
@@ -73,13 +76,25 @@ const Navbar = () => {
       </div>
       <div className="hidden md:flex">
         <ul className="flex gap-2">
-          <li className="hover:cursor-pointer hover:text-gray-900">
-            <AiOutlineInstagram size={22} />
+          <li
+            className="hover:cursor-pointer hover:text-[#A3C6C4]"
+            onClick={() => {
+              router.push("https://github.com/tausif-fardin");
+            }}
+          >
+            <AiOutlineGithub size={22} />
           </li>
-          <li className="hover:cursor-pointer hover:text-gray-900">
+          <li className="hover:cursor-pointer hover:text-[#A3C6C4]">
             <AiOutlineTwitter size={22} />
           </li>
-          <li className="hover:cursor-pointer hover:text-gray-900">
+          <li
+            className="hover:cursor-pointer hover:text-[#A3C6C4]"
+            onClick={() =>
+              router.push(
+                "https://www.linkedin.com/in/tausif-fardin-313a45174/"
+              )
+            }
+          >
             <AiOutlineLinkedin size={22} />
           </li>
         </ul>

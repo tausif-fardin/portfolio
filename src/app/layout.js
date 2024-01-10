@@ -4,7 +4,7 @@ import Navbar from "@/components/nav-bar";
 import { Source_Sans_3 } from "next/font/google";
 
 const roboto = Source_Sans_3({
-  weight: "600",
+  weight: "400",
   subsets: ["latin"],
 });
 const inter = Inter({ subsets: ["latin"] });

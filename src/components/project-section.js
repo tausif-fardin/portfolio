@@ -13,8 +13,8 @@ const ProjectSection = ({
   const [imageError, setImageError] = useState(false);
 
   return (
-    <div className="max-w-lg mx-auto mb-8">
-      <div className="rounded-lg overflow-hidden shadow-lg">
+    <div className="max-w-lg mx-auto h-full">
+      <div className="rounded-lg overflow-hidden shadow-lg h-full flex flex-col justify-around">
         {!imageError ? (
           <Image
             className="w-full"
@@ -36,7 +36,7 @@ const ProjectSection = ({
           {i_did.length > 0 &&
             i_did.map((item, index) => <li key={index}>{item}</li>)}
         </div>
-        <div className="flex flex-wrap px-6 gap-2 mt-2">
+        <div className="flex flex-wrap px-6 gap-2 my-2">
           {techstack.length > 0 &&
             techstack.map((item, index) => (
               <span
