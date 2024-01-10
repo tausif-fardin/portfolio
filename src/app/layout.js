@@ -1,6 +1,12 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/nav-bar";
+import { Source_Sans_3 } from "next/font/google";
+
+const roboto = Source_Sans_3({
+  weight: "600",
+  subsets: ["latin"],
+});
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -11,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={roboto.className}>
         <Navbar />
         {children}
       </body>
