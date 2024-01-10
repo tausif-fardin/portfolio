@@ -21,6 +21,8 @@ export default function Home() {
             githubLink={project.githubLink}
             description={project.description}
             thumbnail={project.thumbnail}
+            i_did={project.i_did}
+            techstack={project.techstack}
           />
         ))}
       </div>
