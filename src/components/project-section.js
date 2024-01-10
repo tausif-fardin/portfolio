@@ -20,8 +20,8 @@ const ProjectSection = ({
             className="w-full"
             src={thumbnail}
             alt="Project Thumbnail"
-            height={200}
             width={400}
+            height={200}
             onError={() => setImageError(true)}
           />
         ) : (
@@ -30,7 +30,7 @@ const ProjectSection = ({
           </div>
         )}
         <div className="px-6 py-4">
-          <p className="text-gray-700 text-base">{description}</p>
+          <p className="text-gray-700 text-2xl">{description}</p>
         </div>
         <div className="px-6">
           {i_did.length > 0 &&
@@ -39,19 +39,36 @@ const ProjectSection = ({
         <div className="flex flex-wrap px-6 gap-2 mt-2">
           {techstack.length > 0 &&
             techstack.map((item, index) => (
-              <span key={index} className="py-1 px-2 bg-orange-200 rounded-md">
-                #{item}
+              <span
+                key={index}
+                className="py-1 px-2 bg-orange-200 rounded-md text-xs"
+              >
+                {item}
               </span>
             ))}
         </div>
-        <div className="px-6 py-4">
+        <div className="px-6 py-4 flex items-center">
           <Link
             href={githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-500 hover:underline"
+            className="text-blue-500 hover:underline flex items-center animate-bounce"
           >
-            GitHub Link
+            Link
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4 ml-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
           </Link>
         </div>
       </div>
