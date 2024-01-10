@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const AboutMe = () => {
   return (
-    <div className="flex flex-row justify-around gap-5">
-      <div className="w-1/2 flex flex-col p-4 bg-slate-200 rounded-md shadow-md items-start justify-center">
+    <div className="flex flex-row items-center justify-center gap-5">
+      <div className="w-2/3 flex flex-col p-4 bg-slate-200 rounded-md shadow-md items-start justify-center">
         <h1>
           Hello, world! I&apos;m Tausif, a digital architect crafting code with
           passion.
@@ -31,12 +31,12 @@ const AboutMe = () => {
         </p>
       </div>
 
-      <div className="w-1/2 justify-center flex items-center">
+      <div className="w-2/3 justify-center flex items-center">
         <Image
           className="rounded-md shadow-md"
           src="/dp.jpg"
-          width={500}
-          height={500}
+          width={300}
+          height={300}
           alt="Picture of the author"
         />
       </div>
