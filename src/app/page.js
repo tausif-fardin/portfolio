@@ -3,6 +3,7 @@ import AboutMe from "@/components/about-me";
 import SectionTitle from "@/components/section-title";
 import Skills from "@/components/skills";
 import ProjectSection from "@/components/project-section";
+import Experience from "@/components/experience";
 import { projects } from "../../constants/projects";
 
 export default function Home() {
@@ -11,6 +12,8 @@ export default function Home() {
       <HeaderSection />
       <SectionTitle title="About Me" />
       <AboutMe />
+      <SectionTitle title="Experience" />
+      <Experience />
       <SectionTitle title="Skills" />
       <Skills />
       <SectionTitle title="Projects" />
