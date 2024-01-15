@@ -24,11 +24,6 @@ const AboutMe = () => {
           challenge of crafting elegant solutions that seamlessly blend
           functionality with a seamless user experience.
         </p>
-        <br />
-        <p>
-          Ready to explore my digital creations? Dive into my portfolio and
-          witness the magic of code in action!
-        </p>
       </div>
 
       <div className="lg:w-2/3 md:w-1/2 w-full justify-center flex items-center">
