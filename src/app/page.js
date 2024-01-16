@@ -7,13 +7,35 @@ import Experience from "@/components/experience";
 import { projects } from "../../constants/projects";
 
 export default function Home() {
+  const jobs = [
+    {
+      title: "Software Engineer",
+      location: "Orbit Digital Solutions Ltd.",
+      duration: "Oct 2022 - Present",
+      details: [
+        "Contributed in designing database of a SAAS product.",
+        "Developed APIs using Node.js for multiple products such as appointment systems, ecommerce.",
+        "Built cross-platform e-commerce mobile app frontend using React Native.",
+        "Developed both frontend and backend components for an international ecommerce platform utilizing Next.js.",
+      ],
+    },
+    {
+      title: "Software Engineer Intern",
+      location: "Entertech",
+      duration: "June 2022 - Sep 2022",
+      details: [
+        "Developed REST API's for a finder app using Node.js and Express.js, enabling efficient data retrieval and processing.",
+        "Designed and implemented database structures by writing optimized queries, contributing to data integrity and application performance",
+      ],
+    },
+  ];
   return (
     <div className="flex flex-col p-10">
       <HeaderSection />
       <SectionTitle title="About Me" />
       <AboutMe />
       <SectionTitle title="Experience" />
-      <Experience />
+      <Experience jobs={jobs} />
       <SectionTitle title="Skills" />
       <Skills />
       <SectionTitle title="Projects" />
