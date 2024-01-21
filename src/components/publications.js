@@ -7,12 +7,14 @@ const Publications = () => {
         Stock Market Comparison and Analysis in Preceding and Following Pandemic
         in Bangladesh using Machine Learning Approaches
       </div>
-      <Link
-        href={"https://dl.acm.org/doi/10.1145/3542954.3542993"}
-        className="text-blue-500 rounded-e-md p-2 bg-slate-200"
-      >
-        Paper Link
-      </Link>
+      <div className="mt-4">
+        <Link
+          href={"https://dl.acm.org/doi/10.1145/3542954.3542993"}
+          className="text-blue-500 rounded-md p-2 bg-slate-200 hover:bg-slate-600 hover:text-slate-200"
+        >
+          Paper Link
+        </Link>
+      </div>
     </div>
   );
 };
