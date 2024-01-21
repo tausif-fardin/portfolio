@@ -6,6 +6,7 @@ import ProjectSection from "@/components/project-section";
 import Experience from "@/components/experience";
 import { projects } from "../../constants/projects";
 import Publications from "@/components/publications";
+import Contacts from "@/components/contacts";
 
 export default function Home() {
   const jobs = [
@@ -54,6 +55,9 @@ export default function Home() {
       </div>
       <SectionTitle title="Publications" />
       <Publications />
+      <SectionTitle title="Contacts" />
+
+      <Contacts />
     </div>
   );
 }
