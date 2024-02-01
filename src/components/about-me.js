@@ -4,12 +4,7 @@ import Image from "next/image";
 const AboutMe = () => {
   return (
     <div className="flex lg:flex-row mf:flex-row flex-col items-center justify-around gap-3">
-      <div className="lg:w-2/3 md:w-1/2 w-full flex flex-col p-4 bg-slate-200 rounded-md shadow-md items-start justify-center">
-        <h1>
-          Hello, world! I&apos;m Tausif, a digital architect crafting code with
-          passion.
-        </h1>
-        <br />
+      <div className="lg:w-2/3 md:w-1/2 w-full flex flex-col p-4 bg-gray-100 rounded-md items-start justify-between lg:gap-4">
         <p>
           I&apos;m a tech enthusiast with a deep fascination for web
           development, machine learning, and the boundless possibilities of AI.
