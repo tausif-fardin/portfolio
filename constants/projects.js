@@ -16,7 +16,11 @@ export const projects = [
     description: "One Piece E-commerce",
     thumbnail: "/project2_thumbnail.jpg",
     i_did: [
-      "This project is an ecommerce platform (admin) built using cutting-edge technologies to deliver a robust and efficient solution. It leverages Next.js 14, TypeScript, Prisma, MySQL, and Tailwind CSS to create a seamless shopping experience",
+      "Built an e-commerce platform (admin).",
+      "Implemented authentication using Clerk.",
+      "Allow users to create multiple stores.",
+      "Developed features for managing products, categories, and sub-categories.",
+      "Implemented order tracking functionality.",
     ],
     techstack: [
       "Typescript",
@@ -32,7 +36,10 @@ export const projects = [
     description: "E-commerce store",
     thumbnail: "/project2_thumbnail.jpg",
     i_did: [
-      "This project is an ecommerce platform (store) built using cutting-edge technologies to deliver a robust and efficient solution.",
+      "Implemented the store part of the previous admin project.",
+      "Supported multiple authentications such as Email, Google, Facebook.",
+      "Implemented user-friendly order placement.",
+      "Integrated Stripe for payment processing.",
     ],
     techstack: [
       "Typescript",
