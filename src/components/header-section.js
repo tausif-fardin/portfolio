@@ -5,10 +5,10 @@ const HeaderSection = () => {
   return (
     <div className="flex flex-col items-start justify-start">
       <p className="border-r-4 border-r-white pr-5 text-xl text-gray-500 font-bold mt-5">
-        Hi, my name is
+        Hi, I&apos;m
       </p>
       <h1 className="mt-4 animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 lg:text-5xl md:text-5xl text-2xl text-gray-700 font-bold">
-        Tausif Fardin Sinha
+        Tausif Fardin
       </h1>
       <p className=" mt-1 border-r-4 border-r-white pr-5 lg:text-5xl md:text-5xl text-2xl text-gray-500 font-bold">
         I build things for the people
