@@ -21,11 +21,15 @@ const Navbar = () => {
     setNav(!nav);
   };
 
+  const handleResumeDownload = () => {
+    window.open("/resume/Tausif_Resume.pdf", "_blank");
+  };
+
   // Array containing navigation items
   const navItems = [
     { id: 1, text: "Experience" },
     { id: 2, text: "Projects" },
-    { id: 3, text: "Resume" },
+    { id: 3, text: "Resume", action: handleResumeDownload },
     { id: 4, text: "Contact" },
   ];
 
@@ -42,6 +46,7 @@ const Navbar = () => {
             <li
               key={item.id}
               className="p-2 cursor-pointer duration-300 hover:text-[#A3C6C4]"
+              onClick={item.action}
             >
               {item.text}
             </li>
