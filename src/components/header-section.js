@@ -6,7 +6,7 @@ import { Player, Controls } from "@lottiefiles/react-lottie-player";
 
 const HeaderSection = () => {
   return (
-    <div className="flex flex-row justify-between">
+    <div className="flex flex-col md:flex-col lg:flex-row lg:justify-between justify-center items-center">
       <div className="flex flex-col items-start justify-start">
         <p className="border-r-4 border-r-white pr-5 text-xl text-gray-500 font-bold mt-5">
           Hi, I&apos;m

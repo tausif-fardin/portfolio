@@ -1,0 +1,42 @@
+.navbar {
+  background-color: white;
+  padding: 0 20px;
+  height: 60px;
+}
+
+.navItem {
+  margin-right: 20px;
+  font-size: 18px;
+  color: #354649;
+  position: relative;
+}
+
+.navItem::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0a8f65;
+  transition: width 0.3s ease;
+}
+
+.navItem:hover::after {
+  width: 100%;
+}
+
+.mobileNav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 60%;
+  height: 100%;
+  background-color: white;
+  padding: 20px;
+  transition: right 0.3s ease;
+}
+
+.mobileNav.open {
+  right: 0;
+}
