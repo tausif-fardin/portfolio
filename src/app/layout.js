@@ -1,13 +1,14 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
-import Navbar from "@/components/nav-bar";
-import { Source_Sans_3 } from "next/font/google";
 
-const roboto = Source_Sans_3({
-  weight: "400",
+import Navbar from "@/components/nav-bar";
+//👇 Import Open Sans font
+import { Open_Sans } from "next/font/google";
+
+//👇 Configure our font object
+const openSans = Open_Sans({
   subsets: ["latin"],
+  display: "swap",
 });
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Tausif Fardin",
@@ -17,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>
+      <body className={openSans.className}>
         <Navbar />
         {children}
       </body>
