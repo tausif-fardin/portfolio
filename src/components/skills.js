@@ -24,7 +24,7 @@ const Skills = () => {
     <div className="flex flex-col justify-center items-start gap-4">
       <div className="flex flex-wrap items-center gap-4">
         <div className="text-lg text-gray-800">Programming Languages:</div>
-        <div className="flex flex-wrap space-x-3 items-center">
+        <div className="flex flex-wrap gap-2 items-center">
           {ProgrammingLanguages.map((skill, index) => (
             <Skill key={index} name={skill} />
           ))}
@@ -32,7 +32,7 @@ const Skills = () => {
       </div>
       <div className="flex flex-wrap items-center gap-4">
         <div className="text-lg text-gray-800">Frameworks:</div>
-        <div className="flex flex-wrap space-x-3 items-center">
+        <div className="flex flex-wrap gap-2 items-center">
           {Frameworks.map((skill, index) => (
             <Skill key={index} name={skill} />
           ))}
@@ -40,7 +40,7 @@ const Skills = () => {
       </div>
       <div className="flex flex-wrap items-center gap-4">
         <div className="text-lg text-gray-800">Database Techs:</div>
-        <div className="flex flex-wrap space-x-3 items-center">
+        <div className="flex flex-wrap gap-2 items-center">
           {Database.map((skill, index) => (
             <Skill key={index} name={skill} />
           ))}

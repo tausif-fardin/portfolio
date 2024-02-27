@@ -37,7 +37,7 @@ const Navbar = () => {
     <div className="bg-[#354649] flex justify-between items-center h-14 max-w-[1240px] lg:max-w-full mx-auto px-8 text-[#E0E7E9]">
       {/* Logo */}
       <div>
-        <h1 className="w-full text-3xl font-bold text-[#00df9a]">TF</h1>
+        <h1 className="w-full text-3xl font-bold text-white">TF</h1>
       </div>
       <div>
         {/* Desktop Navigation */}
