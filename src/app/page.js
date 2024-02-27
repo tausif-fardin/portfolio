@@ -53,7 +53,7 @@ export default function Home() {
           />
         ))}
       </div>
-      <SectionTitle title="Publications" />
+      <SectionTitle title="Research" />
       <Publications />
       <SectionTitle title="Contacts" />
 

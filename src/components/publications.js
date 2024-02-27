@@ -1,20 +1,15 @@
-import React from "react";
-import Link from "next/link";
+"use client";
+import ResearchPaperLink from "./ResearchPaperLink";
+
 const Publications = () => {
   return (
     <div>
-      <div className="font-bold text-xl">
-        Stock Market Comparison and Analysis in Preceding and Following Pandemic
-        in Bangladesh using Machine Learning Approaches
-      </div>
-      <div className="mt-4">
-        <Link
-          href={"https://dl.acm.org/doi/10.1145/3542954.3542993"}
-          className="text-blue-500 rounded-md p-2 bg-slate-200 hover:bg-slate-600 hover:text-slate-200"
-        >
-          Paper Link
-        </Link>
-      </div>
+      <ResearchPaperLink
+        title="Stock Market Comparison and Analysis in Preceding and Following Pandemic
+        in Bangladesh using Machine Learning Approaches"
+        description="The main purpose of this paper is to predict the stock closing prices for two major stock exchanges in Bangladesh and compare the prediction accuracy based on before and after pandemic data. The implemented models are Autoregressive Integrated Moving Average(ARIMA) and Support Vector Machine(SVM) and Long Short-Term Memory (LSTM). Raw datasets were considered, which were collected from Dhaka Stock Exchange(DSE) and Chittagong Stock Exchange(CSE)."
+        paperUrl="https://dl.acm.org/doi/10.1145/3542954.3542993"
+      />
     </div>
   );
 };
