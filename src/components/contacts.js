@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { Linkedin, Facebook, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
 
 const Contacts = () => {
   // State to manage form inputs
@@ -50,7 +53,7 @@ const Contacts = () => {
             href="https://www.linkedin.com/in/tausif-fardin/"
             className="text-[#105854] hover:underline"
           >
-            LinkedIN
+            LinkedIn
           </a>
         </div>{" "}
         <div className="flex items-center space-x-2 mt-3">
@@ -71,9 +74,12 @@ const Contacts = () => {
           </a>
         </div>{" "}
       </div>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col justify-center items-center"
+      >
         <div className="flex items-center space-x-2 my-2">
-          <input
+          <Input
             type="text"
             name="name"
             placeholder="Your Name"
@@ -84,7 +90,7 @@ const Contacts = () => {
           />
         </div>
         <div className="flex items-center space-x-2 my-2">
-          <input
+          <Input
             type="email"
             name="email"
             placeholder="Your Email"
@@ -95,22 +101,15 @@ const Contacts = () => {
           />
         </div>
         <div className="flex items-center space-x-2 my-2">
-          <textarea
-            name="message"
-            placeholder="Your Message"
+          <Textarea
             value={formData.message}
             onChange={handleInputChange}
-            className="border border-gray-300 rounded px-3 py-2 w-full h-32 resize-none"
-            required
-          ></textarea>
+            name="message"
+            placeholder="Your Message"
+          />
         </div>
-        <div className="flex items-center space-x-2 my-3">
-          <button
-            type="submit"
-            className="bg-[#105854] hover:bg-[#609491] text-white font-semibold py-2 px-4 rounded"
-          >
-            Submit
-          </button>
+        <div className="flex self-start space-x-2 my-3">
+          <Button variant="default">Send</Button>
         </div>
       </form>
     </div>

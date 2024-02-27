@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   AiOutlineClose,
   AiOutlineMenu,
@@ -9,7 +10,7 @@ import {
   AiOutlineGithub,
   AiOutlineLinkedin,
 } from "react-icons/ai";
-import { useRouter } from "next/navigation";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const Navbar = () => {
   // State to manage the navbar's visibility
@@ -37,7 +38,10 @@ const Navbar = () => {
     <div className="bg-[#354649] flex justify-between items-center h-14 max-w-[1240px] lg:max-w-full mx-auto px-8 text-[#E0E7E9]">
       {/* Logo */}
       <div>
-        <h1 className="w-full text-3xl font-bold text-white">TF</h1>
+        <Avatar>
+          <AvatarImage src="/dp.jpg" />
+          <AvatarFallback>TF</AvatarFallback>
+        </Avatar>
       </div>
       <div>
         {/* Desktop Navigation */}
