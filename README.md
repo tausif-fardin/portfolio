@@ -1,34 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Overview
+
+This portfolio site is built using **JavaScript** and **CSS**, ensuring a dynamic and engaging user experience. It is fully responsive, providing an optimal viewing experience across all devices.
+
+## Features
+
+- **Interactive Design**: Engaging animations and smooth transitions.
+- **Responsive Layout**: Optimized for desktops, tablets, and mobile devices.
+- **Project Showcase**: Highlights my key projects with descriptions, links, and visuals.
+- **Contact Section**: Allows visitors to get in touch easily.
+- **Custom Styling**: Unique and consistent design using CSS.
+
+## Tech Stack
+
+- **JavaScript
+- **CSS
+- **TailwindCSS
 
 ## Getting Started
 
-First, run the development server:
+You can view the live portfolio site or run it locally by following the steps below:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+### View Live
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit the live portfolio site at: [Live Portfolio](#)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Run Locally
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/tausif-fardin/portfolio.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd portfolio
+   ```
+3. Open the `index.html` file in your browser to view the site locally.
 
-## Learn More
+## Contribution
 
-To learn more about Next.js, take a look at the following resources:
+This is a personal project, but suggestions and feedback are always welcome! If you'd like to contribute:
+1. Fork this repository.
+2. Create a new branch for your changes:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes and push to your fork:
+   ```bash
+   git push origin feature-name
+   ```
+4. Submit a pull request with a detailed description of your changes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This project is licensed under the [MIT License](LICENSE).
 
-## Deploy on Vercel
+## Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Tausif Fardin**
+- [GitHub Profile](https://github.com/tausif-fardin)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+
+Thank you for exploring my portfolio! If you find it interesting, feel free to star ⭐ the repository and share your feedback.
