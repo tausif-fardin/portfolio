@@ -34,7 +34,14 @@ Visit the live portfolio site at: [Live Portfolio](#)
    ```bash
    cd portfolio
    ```
-3. Open the `index.html` file in your browser to view the site locally.
+3. Install all the required packages:
+   ```bash
+   npm i
+   ```
+4. Run the project using this command:
+   ```bash
+   npm start
+   ```
 
 ## Contribution
 
