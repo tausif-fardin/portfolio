@@ -206,11 +206,11 @@ const ContactSection = () => {
                         <div className="space-y-8">
                             <div className="prose prose-lg dark:prose-invert">
                                 <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">
-                                    Let's Connect
+                                    Let&apos;s Connect
                                 </h3>
                                 <p className="text-gray-600 dark:text-gray-300">
-                                    I'm currently available for freelance work
-                                    and full-time positions. If you have a
+                                    I&apos;m currently available for freelance
+                                    work and full-time positions. If you have a
                                     project that needs a backend developer or
                                     looking to hire, feel free to reach out
                                     using the contact form or through any of the

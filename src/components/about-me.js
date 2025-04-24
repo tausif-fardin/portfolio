@@ -90,10 +90,10 @@ const AboutMe = () => {
                             <p>
                                 My journey in software development began with a
                                 passion for solving complex problems through
-                                elegant, efficient code. Over the years, I've
-                                developed expertise in Node.js and NestJS
-                                frameworks, complemented by deep knowledge of
-                                MongoDB and PostgreSQL databases.
+                                elegant, efficient code. Over the years,
+                                I&apos;ve developed expertise in Node.js and
+                                NestJS frameworks, complemented by deep
+                                knowledge of MongoDB and PostgreSQL databases.
                             </p>
 
                             <p>
@@ -105,11 +105,12 @@ const AboutMe = () => {
                             </p>
 
                             <p>
-                                I'm constantly learning and exploring new
+                                I&apos;m constantly learning and exploring new
                                 technologies to stay at the forefront of backend
-                                development best practices. When I'm not coding,
-                                I enjoy contributing to open-source projects and
-                                sharing my knowledge through technical articles.
+                                development best practices. When I&apos;m not
+                                coding, I enjoy contributing to open-source
+                                projects and sharing my knowledge through
+                                technical articles.
                             </p>
                         </div>
                     </motion.div>

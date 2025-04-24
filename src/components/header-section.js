@@ -58,7 +58,7 @@ const HeaderSection = () => {
                         transition={{ duration: 0.8 }}
                     >
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white">
-                            <span>Hello, I'm </span>
+                            <span>Hello, I&apos;m </span>
                             <span className="gradient-text">Tausif Fardin</span>
                         </h1>
 
