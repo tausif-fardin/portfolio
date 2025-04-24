@@ -1,115 +1,137 @@
 "use client";
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useTheme } from "next-themes";
 import {
-  AiOutlineClose,
-  AiOutlineMenu,
-  AiOutlineInstagram,
-  AiOutlineTwitter,
-  AiOutlineGithub,
-  AiOutlineLinkedin,
-} from "react-icons/ai";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+    SunIcon,
+    MoonIcon,
+    Bars3Icon,
+    XMarkIcon,
+} from "@heroicons/react/24/outline";
+import { scrollToSection } from "@/lib/utils";
 
 const Navbar = () => {
-  // State to manage the navbar's visibility
-  const [nav, setNav] = useState(false);
-  const router = useRouter();
+    const [mounted, setMounted] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const { theme, setTheme } = useTheme();
 
-  // Toggle function to handle the navbar's display
-  const handleNav = () => {
-    setNav(!nav);
-  };
+    // Handle hydration mismatch with theme
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
-  const handleResumeDownload = () => {
-    window.open("/resume/Tausif_Resume.pdf", "_blank");
-  };
+    const navigation = [
+        { name: "Home", href: "home" },
+        { name: "About", href: "about" },
+        { name: "Skills", href: "skills" },
+        { name: "Projects", href: "projects" },
+        { name: "Experience", href: "experience" },
+        { name: "Contact", href: "contact" },
+    ];
 
-  // Array containing navigation items
-  const navItems = [
-    { id: 1, text: "Experience" },
-    { id: 2, text: "Projects" },
-    { id: 3, text: "Resume", action: handleResumeDownload },
-    { id: 4, text: "Contact" },
-  ];
+    const handleNavClick = (e, href) => {
+        e.preventDefault();
+        scrollToSection(href);
+        setMobileMenuOpen(false);
+    };
 
-  return (
-    <div className="bg-[#354649] flex justify-between items-center h-14 max-w-[1240px] lg:max-w-full mx-auto px-8 text-[#E0E7E9]">
-      {/* Logo */}
-      <div>
-        <Avatar>
-          <AvatarImage src="/dp.jpg" />
-          <AvatarFallback>TF</AvatarFallback>
-        </Avatar>
-      </div>
-      <div>
-        {/* Desktop Navigation */}
-        <ul className="hidden md:flex">
-          {navItems.map((item) => (
-            <li
-              key={item.id}
-              className="p-2 cursor-pointer duration-300 hover:text-[#A3C6C4]"
-              onClick={item.action}
-            >
-              {item.text}
-            </li>
-          ))}
-        </ul>
-        {/* Mobile Navigation Icon */}
-        <div onClick={handleNav} className="block md:hidden">
-          {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
-        </div>
+    return (
+        <nav className="sticky top-0 z-40 w-full backdrop-blur-md bg-white/70 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between h-16">
+                    {/* Logo and Brand */}
+                    <div className="flex-shrink-0">
+                        <a
+                            href="#home"
+                            onClick={(e) => handleNavClick(e, "home")}
+                            className="font-bold text-xl md:text-2xl gradient-text"
+                        >
+                            TF
+                        </a>
+                    </div>
 
-        {/* Mobile Navigation Menu */}
-        <ul
-          className={
-            nav
-              ? "fixed md:hidden left-0 top-0 w-[50%] h-full border-r border-r-gray-900 bg-[#354649] ease-in-out duration-500"
-              : "ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]"
-          }
-        >
-          {/* Mobile Logo */}
-          <h1 className="w-full text-3xl font-bold text-[#00df9a] m-4">TF</h1>
+                    {/* Desktop Navigation */}
+                    <div className="hidden md:block">
+                        <div className="ml-10 flex items-center space-x-4">
+                            {navigation.map((item) => (
+                                <a
+                                    key={item.name}
+                                    href={`#${item.href}`}
+                                    onClick={(e) =>
+                                        handleNavClick(e, item.href)
+                                    }
+                                    className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary dark:text-gray-200 dark:hover:text-primary transition-colors duration-200"
+                                >
+                                    {item.name}
+                                </a>
+                            ))}
+                        </div>
+                    </div>
 
-          {/* Mobile Navigation Items */}
-          {navItems.map((item) => (
-            <li
-              key={item.id}
-              className="p-2 border-b duration-300 hover:text-[#A3C6C4] cursor-pointer border-[#A3C6C4]"
-            >
-              {item.text}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="hidden md:flex">
-        <ul className="flex gap-2">
-          <li
-            className="hover:cursor-pointer hover:text-[#A3C6C4]"
-            onClick={() => {
-              router.push("https://github.com/tausif-fardin");
-            }}
-          >
-            <AiOutlineGithub size={22} />
-          </li>
-          <li className="hover:cursor-pointer hover:text-[#A3C6C4]">
-            <AiOutlineTwitter size={22} />
-          </li>
-          <li
-            className="hover:cursor-pointer hover:text-[#A3C6C4]"
-            onClick={() =>
-              router.push(
-                "https://www.linkedin.com/in/tausif-fardin-313a45174/"
-              )
-            }
-          >
-            <AiOutlineLinkedin size={22} />
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
+                    {/* Right Section - Theme Toggle */}
+                    <div className="flex items-center">
+                        {/* Theme toggle */}
+                        <button
+                            onClick={() =>
+                                setTheme(theme === "dark" ? "light" : "dark")
+                            }
+                            className="rounded-full p-1 text-gray-700 hover:bg-gray-200 dark:text-gray-200 dark:hover:bg-gray-700 focus:outline-none"
+                            aria-label="Toggle Dark Mode"
+                        >
+                            {mounted && (
+                                <>
+                                    {theme === "dark" ? (
+                                        <SunIcon className="h-6 w-6" />
+                                    ) : (
+                                        <MoonIcon className="h-6 w-6" />
+                                    )}
+                                </>
+                            )}
+                        </button>
+
+                        {/* Mobile menu button */}
+                        <div className="md:hidden flex ml-3">
+                            <button
+                                onClick={() =>
+                                    setMobileMenuOpen(!mobileMenuOpen)
+                                }
+                                className="p-1 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none"
+                                aria-label="Open menu"
+                            >
+                                {mobileMenuOpen ? (
+                                    <XMarkIcon className="h-6 w-6" />
+                                ) : (
+                                    <Bars3Icon className="h-6 w-6" />
+                                )}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Mobile menu */}
+            {mobileMenuOpen && (
+                <div
+                    id="mobile-menu"
+                    className="md:hidden absolute w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 animate-fade-in"
+                >
+                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                        {navigation.map((item) => (
+                            <a
+                                key={item.name}
+                                href={`#${item.href}`}
+                                onClick={(e) => handleNavClick(e, item.href)}
+                                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200 dark:text-gray-200 dark:hover:bg-gray-700"
+                            >
+                                {item.name}
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            )}
+        </nav>
+    );
 };
 
 export default Navbar;
