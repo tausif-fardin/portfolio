@@ -12,10 +12,10 @@ import SectionTitle from "./section-title";
 
 const AboutMe = () => {
     const stats = [
-        { label: "Years Experience", value: "3+" },
-        { label: "Projects Completed", value: "25+" },
+        { label: "Years Experience", value: "2.5+" },
+        { label: "Projects Completed", value: "10+" },
         { label: "Technologies", value: "10+" },
-        { label: "Satisfied Clients", value: "15+" },
+        // { label: "Satisfied Clients", value: "15+" },
     ];
 
     const specialties = [
@@ -81,10 +81,10 @@ const AboutMe = () => {
                     >
                         <div className="prose prose-lg dark:prose-invert max-w-none">
                             <p>
-                                As a Junior Backend Developer with three years
-                                of industry experience, I specialize in building
-                                robust, secure, and scalable backend systems
-                                that power modern web applications.
+                                As a Junior Backend Developer with more than two
+                                years of industry experience, I specialize in
+                                building robust, secure, and scalable backend
+                                systems that power modern web applications.
                             </p>
 
                             <p>

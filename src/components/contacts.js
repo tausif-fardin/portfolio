@@ -66,8 +66,8 @@ const ContactSection = () => {
         {
             icon: <MapPinIcon className="h-6 w-6 text-primary" />,
             title: "Location",
-            details: "New York, NY",
-            link: "https://maps.google.com/?q=New+York,+NY",
+            details: "Dhaka, Bangladesh",
+            link: "https://maps.app.goo.gl/6JAT5kajQAzJ5pyo6",
         },
     ];
 
