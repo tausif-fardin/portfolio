@@ -254,7 +254,7 @@ const ContactSection = () => {
                                 </h4>
                                 <div className="flex space-x-4">
                                     <a
-                                        href="https://github.com/yourusername"
+                                        href="https://github.com/tausif-fardin"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 p-3 rounded-full transition-colors duration-200"
@@ -273,7 +273,7 @@ const ContactSection = () => {
                                         </svg>
                                     </a>
                                     <a
-                                        href="https://linkedin.com/in/yourusername"
+                                        href="https://www.linkedin.com/in/tausif-fardin/"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 p-3 rounded-full transition-colors duration-200"
@@ -303,7 +303,7 @@ const ContactSection = () => {
                                         </svg>
                                     </a>
                                     <a
-                                        href="mailto:tausif.fardin@example.com"
+                                        href="mailto:tausiffardin4@gmail.com"
                                         className="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 p-3 rounded-full transition-colors duration-200"
                                         aria-label="Email"
                                     >
