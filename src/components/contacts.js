@@ -54,14 +54,8 @@ const ContactSection = () => {
         {
             icon: <EnvelopeIcon className="h-6 w-6 text-primary" />,
             title: "Email",
-            details: "tausif.fardin@example.com",
-            link: "mailto:tausif.fardin@example.com",
-        },
-        {
-            icon: <PhoneIcon className="h-6 w-6 text-primary" />,
-            title: "Phone",
-            details: "+1 (555) 123-4567",
-            link: "tel:+15551234567",
+            details: "tausif.fardin@outlook.com",
+            link: "mailto:tausif.fardin@outlook.com",
         },
         {
             icon: <MapPinIcon className="h-6 w-6 text-primary" />,
