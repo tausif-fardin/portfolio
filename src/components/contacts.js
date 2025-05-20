@@ -282,7 +282,7 @@ const ContactSection = () => {
                                         </svg>
                                     </a>
                                     <a
-                                        href="https://twitter.com/yourusername"
+                                        href="https://twitter.com/SinhaFardin"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 p-3 rounded-full transition-colors duration-200"
@@ -297,7 +297,7 @@ const ContactSection = () => {
                                         </svg>
                                     </a>
                                     <a
-                                        href="mailto:tausiffardin4@gmail.com"
+                                        href="mailto:tausif.fardin@outlook.com"
                                         className="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 p-3 rounded-full transition-colors duration-200"
                                         aria-label="Email"
                                     >
