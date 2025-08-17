@@ -62,7 +62,7 @@ const HeaderSection = () => {
         };
 
         typeWriter();
-    }, [typedText, isDeleting, fullText, currentRoleIndex]);
+    }, [typedText, isDeleting, fullText, currentRoleIndex, roles.length]);
 
     return (
         <section
@@ -144,7 +144,7 @@ const HeaderSection = () => {
                                 transition={{ delay: 0.3, duration: 0.8 }}
                             >
                                 <span className="block text-gray-900 dark:text-white">
-                                    Hi, I'm
+                                    Hi, I&apos;m
                                 </span>
                                 <span className="block bg-gradient-to-r from-primary via-blue-600 to-purple-600 bg-clip-text text-transparent">
                                     Tausif Fardin
@@ -158,7 +158,7 @@ const HeaderSection = () => {
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.5 }}
                             >
-                                <span>I'm a</span>
+                                <span>I&apos;m a</span>
                                 <span className="text-primary font-semibold min-w-[280px]">
                                     {typedText}
                                     <span className="ml-1 w-1 h-8 bg-primary animate-pulse inline-block"></span>
@@ -213,7 +213,7 @@ const HeaderSection = () => {
                                 )}
                             >
                                 <Mail size={20} />
-                                Let's Work Together
+                                Let&apos;s Work Together
                                 <ArrowDown
                                     size={16}
                                     className="group-hover:translate-y-1 transition-transform"
