@@ -2,47 +2,67 @@
 
 import { motion } from "framer-motion";
 import {
-    CalendarIcon,
-    BriefcaseIcon,
-    AcademicCapIcon,
-} from "@heroicons/react/24/outline";
+    Briefcase,
+    GraduationCap,
+    Calendar,
+    MapPin,
+    Award,
+    TrendingUp,
+    Users,
+    Code,
+} from "lucide-react";
 import SectionTitle from "./section-title";
 import { useEffect, useState } from "react";
 
 const Experience = () => {
-    // Initialize with null to prevent hydration mismatch
+    const [activeTab, setActiveTab] = useState("experience");
     const [isDesktop, setIsDesktop] = useState(null);
 
     useEffect(() => {
-        // Only access window object after component has mounted (client-side only)
         const handleResize = () => {
             setIsDesktop(window.innerWidth >= 768);
         };
-
-        // Set initial value
         handleResize();
-
-        // Add event listener for window resize
         window.addEventListener("resize", handleResize);
-
-        // Cleanup
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    const experiences = [
+    const workExperience = [
         {
             id: 1,
             title: "Jr. Backend Developer",
             company: "ZAAG Systems Ltd.",
             location: "Dhaka, Bangladesh",
             period: "Apr 2024 - Present",
-            description: [
-                "Backend development for enterprise-level microservices architecture using NestJS",
-                "Designed and optimized PostgreSQL database schemas improving query performance by 40%",
-                "Implemented robust authentication and authorization systems with JWT and OAuth 2.0",
-                "Mentored junior developers and conducted code reviews to maintain high quality standards",
+            duration: "8+ months",
+            description:
+                "Leading backend development for enterprise microservices architecture using modern Node.js stack.",
+            achievements: [
+                {
+                    text: "Backend development for enterprise-level microservices architecture using NestJS",
+                    icon: <Code className="h-4 w-4" />,
+                },
+                {
+                    text: "Designed and optimized PostgreSQL database schemas improving query performance by 40%",
+                    icon: <TrendingUp className="h-4 w-4" />,
+                },
+                {
+                    text: "Implemented robust authentication and authorization systems with JWT and OAuth 2.0",
+                    icon: <Award className="h-4 w-4" />,
+                },
+                {
+                    text: "Mentored junior developers and conducted code reviews to maintain high quality standards",
+                    icon: <Users className="h-4 w-4" />,
+                },
             ],
-            type: "work",
+            technologies: [
+                "NestJS",
+                "PostgreSQL",
+                "JWT",
+                "OAuth 2.0",
+                "Microservices",
+            ],
+            isPresent: true,
         },
         {
             id: 2,
@@ -50,13 +70,35 @@ const Experience = () => {
             company: "Orbit Digital Solutions Ltd.",
             location: "Dhaka, Bangladesh",
             period: "Oct 2022 - Mar 2024",
-            description: [
-                "Developed RESTful APIs using Node.js and Express for various client applications",
-                "Built and maintained MongoDB database architectures for scalable web applications",
-                "Integrated third-party APIs including payment gateways and notification services",
-                "Collaborated with frontend teams to ensure seamless API integration",
+            duration: "1 year 6 months",
+            description:
+                "Full-stack development with focus on building scalable backend solutions for various client applications.",
+            achievements: [
+                {
+                    text: "Developed RESTful APIs using Node.js and Express for various client applications",
+                    icon: <Code className="h-4 w-4" />,
+                },
+                {
+                    text: "Built and maintained MongoDB database architectures for scalable web applications",
+                    icon: <TrendingUp className="h-4 w-4" />,
+                },
+                {
+                    text: "Integrated third-party APIs including payment gateways and notification services",
+                    icon: <Award className="h-4 w-4" />,
+                },
+                {
+                    text: "Collaborated with frontend teams to ensure seamless API integration",
+                    icon: <Users className="h-4 w-4" />,
+                },
             ],
-            type: "work",
+            technologies: [
+                "Node.js",
+                "Express",
+                "MongoDB",
+                "REST APIs",
+                "Payment Integration",
+            ],
+            isPresent: false,
         },
         {
             id: 3,
@@ -64,196 +106,424 @@ const Experience = () => {
             company: "Entertech",
             location: "Dhaka, Bangladesh",
             period: "Jun 2022 - Sep 2022",
-            description: [
-                "Worked on both frontend (React) and backend (Node.js) development",
-                "Created and maintained RESTful APIs for web and mobile applications",
-                "Implemented MongoDB database solutions for content management systems",
-                "Participated in agile development processes including daily stand-ups and sprint planning",
+            duration: "4 months",
+            description:
+                "Full-stack internship focusing on both frontend and backend development with modern web technologies.",
+            achievements: [
+                {
+                    text: "Worked on both frontend (React) and backend (Node.js) development",
+                    icon: <Code className="h-4 w-4" />,
+                },
+                {
+                    text: "Created and maintained RESTful APIs for web and mobile applications",
+                    icon: <TrendingUp className="h-4 w-4" />,
+                },
+                {
+                    text: "Implemented MongoDB database solutions for content management systems",
+                    icon: <Award className="h-4 w-4" />,
+                },
+                {
+                    text: "Participated in agile development processes including daily stand-ups and sprint planning",
+                    icon: <Users className="h-4 w-4" />,
+                },
             ],
-            type: "work",
+            technologies: ["React", "Node.js", "MongoDB", "REST APIs", "Agile"],
+            isPresent: false,
         },
+    ];
+
+    const education = [
         {
-            id: 4,
+            id: 1,
             title: "BSc in Computer Science and Engineering",
-            company: "American International University-Bangladesh (AIUB)",
+            institution: "American International University-Bangladesh (AIUB)",
             location: "Dhaka, Bangladesh",
             period: "Sep 2018 - Sep 2022",
-            description: [
+            gpa: "3.71/4.00",
+            description:
+                "Comprehensive computer science education with focus on web development and database systems.",
+            highlights: [
                 "Graduated with honors (3.71 GPA)",
                 "Specialized in web development and database systems",
-                "Published a research paper on 'Stock Price Prediction using Machine Learning'",
+                "Published research paper on 'Stock Price Prediction using Machine Learning'",
                 "Relevant coursework: Data Structures, Algorithms, Database Systems, Web Development",
             ],
-            type: "education",
+            achievements: [
+                "Dean's List",
+                "Research Publication",
+                "Web Development Specialization",
+            ],
+        },
+    ];
+
+    const certifications = [
+        {
+            title: "MongoDB Node.js Developer Path",
+            issuer: "MongoDB University",
+            date: "March 2024",
+            credential: "Verified Certificate",
+            featured: true,
+        },
+        {
+            title: "JavaScript (Basic) Certificate",
+            issuer: "HackerRank",
+            date: "June 2023",
+            credential: "Skills Verification",
+            featured: true,
+        },
+        {
+            title: "Python Data Structures",
+            issuer: "Coursera",
+            date: "June 2020",
+            credential: "Course Certificate",
+            featured: false,
+        },
+        {
+            title: "Programming for Everybody (Getting Started with Python)",
+            issuer: "Coursera",
+            date: "May 2020",
+            credential: "Course Certificate",
+            featured: false,
         },
     ];
 
     return (
         <section
             id="experience"
-            className="py-16 md:py-24 bg-gray-50 dark:bg-gray-800"
+            className="py-24 md:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-800"
         >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionTitle
-                    title="Experience & Education"
-                    subtitle="My professional journey and academic background."
-                    centered
+                    title="Professional Journey"
+                    subtitle="My career progression and educational background in backend development"
                 />
 
-                <div className="mt-12 max-w-4xl mx-auto">
-                    <div className="relative">
-                        {/* Timeline center line - hidden on mobile, visible on md+ */}
-                        <div className="absolute hidden md:block left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-200 dark:bg-gray-700"></div>
+                {/* Tab Navigation */}
+                <div className="flex justify-center mt-12 mb-16">
+                    <div className="bg-white dark:bg-neutral-900 p-2 rounded-2xl shadow-lg border border-gray-200 dark:border-neutral-800">
+                        {[
+                            {
+                                id: "experience",
+                                label: "Work Experience",
+                                icon: <Briefcase className="h-4 w-4" />,
+                            },
+                            {
+                                id: "education",
+                                label: "Education",
+                                icon: <GraduationCap className="h-4 w-4" />,
+                            },
+                            {
+                                id: "certifications",
+                                label: "Certifications",
+                                icon: <Award className="h-4 w-4" />,
+                            },
+                        ].map((tab) => (
+                            <button
+                                key={tab.id}
+                                onClick={() => setActiveTab(tab.id)}
+                                className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                                    activeTab === tab.id
+                                        ? "bg-primary text-white shadow-md"
+                                        : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                                }`}
+                            >
+                                {tab.icon}
+                                {tab.label}
+                            </button>
+                        ))}
+                    </div>
+                </div>
 
-                        {/* Mobile timeline line - left aligned */}
-                        <div className="absolute md:hidden left-5 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700"></div>
-
-                        {/* Timeline items */}
-                        <div className="space-y-8 md:space-y-12">
-                            {experiences.map((experience, index) => (
+                {/* Work Experience Tab */}
+                {activeTab === "experience" && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="max-w-5xl mx-auto"
+                    >
+                        <div className="space-y-8">
+                            {workExperience.map((exp, index) => (
                                 <motion.div
-                                    key={experience.id}
-                                    initial={{ opacity: 0, y: 30 }}
+                                    key={exp.id}
+                                    initial={{
+                                        opacity: 0,
+                                        x: index % 2 === 0 ? -50 : 50,
+                                    }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{
+                                        duration: 0.6,
+                                        delay: index * 0.1,
+                                    }}
+                                    viewport={{ once: true }}
+                                    className="relative"
+                                >
+                                    <div className="bg-white dark:bg-neutral-900 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-neutral-800 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                                        {/* Header */}
+                                        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                                            <div className="flex items-start gap-4">
+                                                <div className="p-3 bg-gradient-to-r from-primary to-blue-600 rounded-xl text-white shadow-lg">
+                                                    <Briefcase className="h-6 w-6" />
+                                                </div>
+                                                <div className="flex-1">
+                                                    <div className="flex items-center gap-3 mb-2">
+                                                        <h3 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">
+                                                            {exp.title}
+                                                        </h3>
+                                                        {exp.isPresent && (
+                                                            <span className="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400 rounded-full text-xs font-medium">
+                                                                Current
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                    <h4 className="text-lg font-semibold text-primary mb-1">
+                                                        {exp.company}
+                                                    </h4>
+                                                    <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+                                                        <div className="flex items-center gap-1">
+                                                            <MapPin className="h-4 w-4" />
+                                                            {exp.location}
+                                                        </div>
+                                                        <div className="flex items-center gap-1">
+                                                            <Calendar className="h-4 w-4" />
+                                                            {exp.period}
+                                                        </div>
+                                                        <div className="px-2 py-1 bg-gray-100 dark:bg-neutral-800 rounded-md text-xs">
+                                                            {exp.duration}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Description */}
+                                        <p className="text-gray-600 dark:text-gray-400 mb-6 text-lg">
+                                            {exp.description}
+                                        </p>
+
+                                        {/* Achievements */}
+                                        <div className="mb-6">
+                                            <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 uppercase tracking-wider">
+                                                Key Achievements
+                                            </h5>
+                                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                                                {exp.achievements.map(
+                                                    (achievement, idx) => (
+                                                        <motion.div
+                                                            key={idx}
+                                                            initial={{
+                                                                opacity: 0,
+                                                                y: 10,
+                                                            }}
+                                                            whileInView={{
+                                                                opacity: 1,
+                                                                y: 0,
+                                                            }}
+                                                            transition={{
+                                                                delay:
+                                                                    idx * 0.1,
+                                                            }}
+                                                            viewport={{
+                                                                once: true,
+                                                            }}
+                                                            className="flex items-start gap-3 p-3 bg-gray-50 dark:bg-neutral-800 rounded-lg"
+                                                        >
+                                                            <div className="text-primary mt-0.5">
+                                                                {
+                                                                    achievement.icon
+                                                                }
+                                                            </div>
+                                                            <span className="text-sm text-gray-700 dark:text-gray-300">
+                                                                {
+                                                                    achievement.text
+                                                                }
+                                                            </span>
+                                                        </motion.div>
+                                                    )
+                                                )}
+                                            </div>
+                                        </div>
+
+                                        {/* Technologies */}
+                                        <div>
+                                            <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-3 uppercase tracking-wider">
+                                                Technologies Used
+                                            </h5>
+                                            <div className="flex flex-wrap gap-2">
+                                                {exp.technologies.map(
+                                                    (tech, idx) => (
+                                                        <span
+                                                            key={idx}
+                                                            className="px-3 py-1 bg-gradient-to-r from-primary/10 to-blue-600/10 text-primary dark:text-blue-400 rounded-full text-xs font-medium border border-primary/20"
+                                                        >
+                                                            {tech}
+                                                        </span>
+                                                    )
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
+                )}
+
+                {/* Education Tab */}
+                {activeTab === "education" && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="max-w-4xl mx-auto"
+                    >
+                        {education.map((edu, index) => (
+                            <motion.div
+                                key={edu.id}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.6 }}
+                                viewport={{ once: true }}
+                                className="bg-white dark:bg-neutral-900 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-neutral-800"
+                            >
+                                <div className="flex items-start gap-6">
+                                    <div className="p-4 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl text-white shadow-lg">
+                                        <GraduationCap className="h-8 w-8" />
+                                    </div>
+                                    <div className="flex-1">
+                                        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
+                                            <div>
+                                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                                                    {edu.title}
+                                                </h3>
+                                                <h4 className="text-lg font-semibold text-primary mb-2">
+                                                    {edu.institution}
+                                                </h4>
+                                                <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-4">
+                                                    <div className="flex items-center gap-1">
+                                                        <MapPin className="h-4 w-4" />
+                                                        {edu.location}
+                                                    </div>
+                                                    <div className="flex items-center gap-1">
+                                                        <Calendar className="h-4 w-4" />
+                                                        {edu.period}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="bg-green-100 dark:bg-green-900/30 px-4 py-2 rounded-xl">
+                                                <span className="text-green-800 dark:text-green-400 font-bold">
+                                                    GPA: {edu.gpa}
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <p className="text-gray-600 dark:text-gray-400 mb-6 text-lg">
+                                            {edu.description}
+                                        </p>
+
+                                        <div className="mb-6">
+                                            <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 uppercase tracking-wider">
+                                                Academic Highlights
+                                            </h5>
+                                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                                                {edu.highlights.map(
+                                                    (highlight, idx) => (
+                                                        <div
+                                                            key={idx}
+                                                            className="flex items-start gap-3 p-3 bg-gray-50 dark:bg-neutral-800 rounded-lg"
+                                                        >
+                                                            <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                                                            <span className="text-sm text-gray-700 dark:text-gray-300">
+                                                                {highlight}
+                                                            </span>
+                                                        </div>
+                                                    )
+                                                )}
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-3 uppercase tracking-wider">
+                                                Achievements
+                                            </h5>
+                                            <div className="flex flex-wrap gap-2">
+                                                {edu.achievements.map(
+                                                    (achievement, idx) => (
+                                                        <span
+                                                            key={idx}
+                                                            className="px-3 py-1 bg-gradient-to-r from-purple-100 to-indigo-100 dark:from-purple-900/30 dark:to-indigo-900/30 text-purple-800 dark:text-purple-400 rounded-full text-xs font-medium"
+                                                        >
+                                                            {achievement}
+                                                        </span>
+                                                    )
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                )}
+
+                {/* Certifications Tab */}
+                {activeTab === "certifications" && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="max-w-4xl mx-auto"
+                    >
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {certifications.map((cert, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{
                                         duration: 0.5,
                                         delay: index * 0.1,
                                     }}
-                                    viewport={{ once: true, margin: "-100px" }}
-                                    className={`flex items-start md:items-center ${
-                                        // Use CSS media queries instead of JS check for SSR compatibility
-                                        index % 2 === 0
-                                            ? "md:flex-row-reverse md:text-right"
-                                            : "md:flex-row md:text-left"
-                                    } flex-row`}
+                                    viewport={{ once: true }}
+                                    className={`relative p-6 rounded-2xl border-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
+                                        cert.featured
+                                            ? "bg-gradient-to-br from-primary/5 to-blue-600/5 border-primary/20 shadow-md"
+                                            : "bg-white dark:bg-neutral-900 border-gray-200 dark:border-neutral-800"
+                                    }`}
                                 >
-                                    {/* Mobile layout - always on the left side */}
-                                    <div className="md:hidden z-10 flex-shrink-0 flex items-center justify-center w-10 h-10 bg-primary rounded-full shadow-lg">
-                                        {experience.type === "work" ? (
-                                            <BriefcaseIcon className="h-5 w-5 text-white" />
-                                        ) : (
-                                            <AcademicCapIcon className="h-5 w-5 text-white" />
-                                        )}
-                                    </div>
-
-                                    {/* Timeline content */}
-                                    <div
-                                        className={`pl-4 md:w-5/12 ${
-                                            index % 2 === 0
-                                                ? "md:pr-8"
-                                                : "md:pl-8"
-                                        } flex-grow md:flex-grow-0`}
-                                    >
-                                        <div className="bg-white dark:bg-gray-900 p-4 md:p-6 rounded-lg shadow-sm">
-                                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                                                {experience.title}
-                                            </h3>
-                                            <h4 className="text-lg font-medium text-primary mt-1">
-                                                {experience.company}
+                                    {cert.featured && (
+                                        <div className="absolute top-4 right-4">
+                                            <div className="px-2 py-1 bg-primary text-white rounded-full text-xs font-medium">
+                                                Featured
+                                            </div>
+                                        </div>
+                                    )}
+                                    <div className="flex items-start gap-4">
+                                        <div className="p-3 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl text-white shadow-lg">
+                                            <Award className="h-6 w-6" />
+                                        </div>
+                                        <div className="flex-1">
+                                            <h4 className="font-bold text-gray-900 dark:text-white mb-1">
+                                                {cert.title}
                                             </h4>
-                                            <div className="text-sm text-gray-500 dark:text-gray-400 mt-1 flex flex-col sm:flex-row sm:items-center sm:gap-1 mb-4">
-                                                <span>
-                                                    {experience.location}
+                                            <p className="text-primary font-semibold mb-2">
+                                                {cert.issuer}
+                                            </p>
+                                            <div className="flex items-center justify-between">
+                                                <span className="text-sm text-gray-600 dark:text-gray-400">
+                                                    {cert.date}
                                                 </span>
-                                                <span className="hidden sm:inline mx-1">
-                                                    •
-                                                </span>
-                                                <span className="flex items-center mt-1 sm:mt-0">
-                                                    {/* <CalendarIcon className="h-4 w-4 mr-1" /> */}
-                                                    {experience.period}
+                                                <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-neutral-800 rounded-md">
+                                                    {cert.credential}
                                                 </span>
                                             </div>
-                                            <ul
-                                                className={`space-y-2 text-left ${
-                                                    index % 2 === 0
-                                                        ? "md:text-right"
-                                                        : "md:text-left"
-                                                }`}
-                                            >
-                                                {experience.description.map(
-                                                    (item, idx) => (
-                                                        <li
-                                                            key={idx}
-                                                            className="text-gray-600 dark:text-gray-300 text-sm"
-                                                        >
-                                                            {item}
-                                                        </li>
-                                                    )
-                                                )}
-                                            </ul>
                                         </div>
                                     </div>
-
-                                    {/* Desktop Timeline dot - hidden on mobile */}
-                                    <div className="hidden md:flex z-10 items-center justify-center w-10 h-10 bg-primary rounded-full shadow-lg">
-                                        {experience.type === "work" ? (
-                                            <BriefcaseIcon className="h-5 w-5 text-white" />
-                                        ) : (
-                                            <AcademicCapIcon className="h-5 w-5 text-white" />
-                                        )}
-                                    </div>
-
-                                    {/* Empty space for the opposite side - hidden on mobile */}
-                                    <div className="hidden md:block md:w-5/12"></div>
                                 </motion.div>
                             ))}
                         </div>
-                    </div>
-
-                    {/* Additional Certifications */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        className="mt-16 bg-white dark:bg-gray-900 p-4 md:p-6 rounded-lg shadow-sm"
-                    >
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-                            Professional Certifications
-                        </h3>
-                        <div className="space-y-4">
-                            {[
-                                {
-                                    title: "MongoDB Node.js Developer Path",
-                                    issuer: "MongoDB University",
-                                    date: "March 2024",
-                                },
-                                {
-                                    title: "JavaScript (Basic) Certificate",
-                                    issuer: "HackerRank",
-                                    date: "June 2023",
-                                },
-                                {
-                                    title: "Python Data Structures",
-                                    issuer: "Coursera",
-                                    date: "June 2020",
-                                },
-                                {
-                                    title: "Programming for Everybody (Getting Started with Python)",
-                                    issuer: "Coursera",
-                                    date: "May 2020",
-                                },
-                            ].map((cert, index) => (
-                                <div
-                                    key={index}
-                                    className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b border-gray-100 dark:border-gray-700 pb-3 gap-1"
-                                >
-                                    <div>
-                                        <h4 className="font-medium text-gray-900 dark:text-white">
-                                            {cert.title}
-                                        </h4>
-                                        <p className="text-sm text-gray-500 dark:text-gray-400">
-                                            {cert.issuer}
-                                        </p>
-                                    </div>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                                        {cert.date}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
                     </motion.div>
-                </div>
+                )}
             </div>
         </section>
     );
