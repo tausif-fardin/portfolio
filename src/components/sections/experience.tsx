@@ -12,7 +12,7 @@ export function Experience() {
                         key={`${item.company}-${item.role}`}
                         className="relative pb-10 pl-7 last:pb-0"
                     >
-                        {/* Timeline marker — the accent dot flags the current role. */}
+                        {/* Timeline marker - the accent dot flags the current role. */}
                         <span
                             aria-hidden="true"
                             className={cn(

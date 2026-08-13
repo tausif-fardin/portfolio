@@ -20,11 +20,11 @@ const mono = JetBrains_Mono({
     weight: ["400", "500"],
 });
 
-const title = `${profile.name} — ${profile.title}`;
+const title = `${profile.name} - ${profile.title}`;
 const description = `${profile.title}. ${profile.tagline}`;
 
 /**
- * Static social card. Regenerate it if the name/title in `profile` changes —
+ * Static social card. Regenerate it if the name/title in `profile` changes -
  * it is a committed asset rather than a next/og route, because next/og's
  * bundled asset paths break on Windows builds.
  */
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     metadataBase: new URL(SITE_URL),
     title: {
         default: title,
-        template: `%s — ${profile.shortName}`,
+        template: `%s - ${profile.shortName}`,
     },
     description,
     applicationName: profile.name,

@@ -1,4 +1,4 @@
-# Portfolio — Tausif Fardin Sinha
+# Portfolio - Tausif Fardin Sinha
 
 Personal portfolio for a backend-focused Full Stack Engineer. Minimalist,
 typography-driven, and static: a single prerendered route with no client-side
@@ -33,7 +33,7 @@ npm run dev          # http://localhost:3000
 
 ## Configuration
 
-Copy `.env.example` to `.env.local` and set the deployed origin — it drives
+Copy `.env.example` to `.env.local` and set the deployed origin - it drives
 canonical URLs, `sitemap.xml`, and Open Graph image resolution:
 
 ```
@@ -42,8 +42,8 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com
 
 ## Editing content
 
-All copy lives in **`src/lib/content.ts`** — profile, experience, projects,
-skills, and publications — typed against `src/lib/types.ts`. No content is
+All copy lives in **`src/lib/content.ts`** - profile, experience, projects,
+skills, and publications - typed against `src/lib/types.ts`. No content is
 hardcoded in components.
 
 - Publications accept an optional `url`; the external-link affordance appears
@@ -71,5 +71,5 @@ content when JavaScript is unavailable.
 
 ## Author
 
-**Tausif Fardin Sinha** — [GitHub](https://github.com/tausif-fardin) ·
+**Tausif Fardin Sinha** - [GitHub](https://github.com/tausif-fardin) ·
 [LinkedIn](https://linkedin.com/in/tausif-fardin)

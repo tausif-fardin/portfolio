@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 
-/** Gentle deceleration curve — no overshoot, no bounce. */
+/** Gentle deceleration curve - no overshoot, no bounce. */
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 interface RevealProps {
