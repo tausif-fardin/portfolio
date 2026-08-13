@@ -50,7 +50,7 @@ export function Publications() {
     return (
         <Section id="publications" label="Publications">
             <Reveal>
-                {/* -mx-4 matches the rows' px-4 — see projects.tsx. */}
+                {/* -mx-4 matches the rows' px-4 - see projects.tsx. */}
                 <ol className="-mx-4 divide-y divide-border border-y border-border">
                     {publications.map((publication) => (
                         <li key={publication.title}>

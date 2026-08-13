@@ -16,7 +16,7 @@ export function MobileNav({ activeId }: { activeId: string | null }) {
     const triggerRef = useRef<HTMLButtonElement>(null);
     const panelRef = useRef<HTMLDivElement>(null);
 
-    /** Dismissed without choosing a destination — send focus back to the trigger. */
+    /** Dismissed without choosing a destination - send focus back to the trigger. */
     const close = useCallback(() => {
         setOpen(false);
         triggerRef.current?.focus();
@@ -24,7 +24,7 @@ export function MobileNav({ activeId }: { activeId: string | null }) {
 
     /**
      * Closed by picking a section. The scroll lock has to come off *synchronously*
-     * here: the effect cleanup below runs after paint, which is too late — the
+     * here: the effect cleanup below runs after paint, which is too late - the
      * browser performs the anchor jump as soon as this handler returns, and a
      * locked body silently swallows it. Focus is left alone so it doesn't yank
      * the viewport back up to the header mid-scroll.
@@ -115,7 +115,7 @@ export function MobileNav({ activeId }: { activeId: string | null }) {
                     <>
                         {/*
                           * Backdrop: dismisses on tap, hidden from the a11y tree.
-                          * Positioned `absolute`, not `fixed` — the header's
+                          * Positioned `absolute`, not `fixed` - the header's
                           * backdrop-blur makes it the containing block for fixed
                           * descendants, which would size this against the 64px
                           * header instead of the viewport.

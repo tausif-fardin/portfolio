@@ -36,7 +36,7 @@ export interface ExperienceItem {
     company: string;
     role: string;
     period: string;
-    /** Marks the present role — drives the accent timeline marker. */
+    /** Marks the present role - drives the accent timeline marker. */
     current?: boolean;
     highlights: readonly string[];
 }

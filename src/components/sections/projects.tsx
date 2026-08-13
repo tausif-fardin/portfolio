@@ -4,7 +4,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
 import { projects } from "@/lib/content";
 
-/** Display host for a project URL — derived so it can never drift from `href`. */
+/** Display host for a project URL - derived so it can never drift from `href`. */
 function displayDomain(href: string): string {
     return new URL(href).hostname.replace(/^www\./, "");
 }

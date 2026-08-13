@@ -8,7 +8,7 @@ export function Contact() {
         <Section id="contact" label="Contact">
             <Reveal>
                 <p className="max-w-measure text-body text-foreground/80">
-                    Email is the best way to reach me — for roles,
+                    Email is the best way to reach me - for roles,
                     collaborations, or a question about backend architecture.
                 </p>
 
