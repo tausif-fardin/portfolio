@@ -36,6 +36,18 @@
 
     body {
         @apply bg-background text-foreground antialiased;
+        /*
+         * Geist's alternate lowercase 'a'. Confirmed against the font's GSUB
+         * table: ss01 -> a.ss01, ss02 -> a.ss02 — the only two sets that touch
+         * 'a'. Swap the tag below to compare the two forms.
+         */
+        font-feature-settings: "ss01";
+    }
+
+    /* The mono text is already how we want it; ss01 means something else in
+       JetBrains Mono, so don't let the body setting leak into it. */
+    .font-mono {
+        font-feature-settings: normal;
     }
 
     ::selection {
