@@ -64,7 +64,7 @@ export function SiteHeader() {
                     </span>
                 </a>
 
-                <nav aria-label="Sections" className="hidden md:block">
+                <nav aria-label="Sections" className="hidden lg:block">
                     <ul className="flex items-center gap-0.5">
                         {NAV_ITEMS.map((item) => (
                             <li key={item.id}>

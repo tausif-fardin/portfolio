@@ -1,11 +1,12 @@
 import { About } from "@/components/sections/about";
 import { Contact } from "@/components/sections/contact";
+import { Education } from "@/components/sections/education";
 import { Experience } from "@/components/sections/experience";
 import { Hero } from "@/components/sections/hero";
 import { Projects } from "@/components/sections/projects";
 import { Publications } from "@/components/sections/publications";
 import { Skills } from "@/components/sections/skills";
-import { experience, profile, skillGroups } from "@/lib/content";
+import { education, experience, profile, skillGroups } from "@/lib/content";
 import { SITE_URL } from "@/lib/site";
 
 export default function HomePage() {
@@ -27,6 +28,13 @@ export default function HomePage() {
             addressCountry: "BD",
         },
         knowsAbout: skillGroups.flatMap((group) => group.items),
+        // Deduplicated: both degrees are from the same institution.
+        alumniOf: [
+            ...new Set(education.map((item) => item.institution)),
+        ].map((name) => ({
+            "@type": "CollegeOrUniversity",
+            name,
+        })),
         ...(currentRole
             ? {
                   worksFor: {
@@ -50,6 +58,7 @@ export default function HomePage() {
             <Experience />
             <Projects />
             <Skills />
+            <Education />
             <Publications />
             <Contact />
         </>

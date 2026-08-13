@@ -1,6 +1,7 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 
 import type {
+    EducationItem,
     ExperienceItem,
     Profile,
     Project,
@@ -15,13 +16,15 @@ export const profile: Profile = {
     monogram: "TFS",
     title: "Backend Engineer & System Architect",
     tagline:
-        "Building high-throughput SaaS platforms, scalable architectures, and AI-integrated applications.",
+        "Building high-throughput SaaS platforms, e-commerce ecosystems, and AI-integrated applications.",
     summary: [
-        "Backend Engineer and System Architect with 3+ years of experience designing scalable relational and NoSQL databases, managing multi-platform API integrations, and applying machine learning workflows to enhance enterprise products.",
-        "I specialize in the Node.js ecosystem (NestJS, Express) and building resilient systems that handle massive scale gracefully.",
+        "Backend Engineer and System Architect with 3+ years of experience designing high-throughput SaaS platforms, e-commerce ecosystems, and AI-integrated applications.",
+        "Proven track record leading technical teams, architecting scalable relational and NoSQL databases, and managing end-to-end deployments for enterprise brands.",
+        "I specialize in Node.js ecosystems (NestJS, Express), multi-platform API integrations, and applying machine learning workflows to enhance product capabilities.",
     ],
     email: "tf.sinha@gmail.com",
     location: "Dhaka, Bangladesh",
+    languages: "English (Professional), Bengali (Native)",
     resumeUrl: "/resume/Tausif_Resume.pdf",
     avatar: "/dp.jpg",
     github: "https://github.com/tausif-fardin",
@@ -56,10 +59,12 @@ export const experience: readonly ExperienceItem[] = [
         period: "Sep 2025 — Present",
         current: true,
         highlights: [
-            "Spearheaded backend architecture using NestJS, PostgreSQL, and MongoDB.",
-            "Re-engineered a POS payments backend for graceful degradation, improving fallback from 12.3s to 56ms.",
-            "Verified system readiness at 40x projected peak load with zero ledger drift.",
-            "Architected a highly scalable Redis-backed queued bulk email delivery system.",
+            "Spearheaded backend architecture across multiple production applications using NestJS, Express, PostgreSQL, and MongoDB, taking full ownership of API design, database schemas, and external integrations.",
+            "Re-engineered a POS payments backend to ensure graceful degradation during cache outages, improving failure response times from 12.3s to a 56ms fallback.",
+            "Verified system readiness at 40x projected peak load with zero ledger drift during extensive load testing.",
+            "Architected and deployed a highly scalable bulk email delivery system leveraging Redis-backed queues to process and deliver large volumes of daily emails.",
+            "Developed a custom-domain provisioning feature for a multi-tenant SaaS platform integrating Cloudflare and Namecheap APIs, partial-payment gateways, and per-store analytics.",
+            "Led backend engineering for Apex Footwear, delivering a secure role-based admin portal and optimizing a complex image and video processing pipeline for native iOS playback.",
         ],
     },
     {
@@ -67,9 +72,10 @@ export const experience: readonly ExperienceItem[] = [
         role: "Jr. Backend Developer",
         period: "Apr 2024 — Aug 2025",
         highlights: [
-            "Developed scalable e-commerce backend solutions integrating SSLCommerz, Stripe, and Firebase.",
-            "Optimized a legacy PDF generation pipeline, reducing generation time by 60%.",
-            "Modernized deployment workflows with automated CI/CD pipelines.",
+            "Developed scalable e-commerce backend solutions for clients like Mumuso Bangladesh, integrating local and global services including SSLCommerz, Stripe, Pathao dispatch, and Firebase push notifications.",
+            "Optimized a legacy PDF generation pipeline by overhauling the core processing logic, reducing generation time by 60% and improving overall system performance.",
+            "Modernized deployment workflows by replacing manual release processes with automated CI/CD pipelines.",
+            "Managed and monitored production infrastructure across DigitalOcean, Hetzner, and Hostinger to ensure high availability.",
         ],
     },
     {
@@ -77,9 +83,19 @@ export const experience: readonly ExperienceItem[] = [
         role: "Software Engineer",
         period: "Oct 2022 — Mar 2024",
         highlights: [
-            "Developed a computer-vision OCR pipeline to extract passport details.",
-            "Architected MongoDB schemas for 50,000+ records, slashing query response times by 90% (from 2s to 200ms).",
-            "Engineered a robust scheduling API reducing manual scheduling efforts by 40%.",
+            "Developed a computer-vision OCR pipeline to extract passport details from photographs, automating identity verification and eliminating manual data entry bottlenecks for clients.",
+            "Architected and indexed MongoDB schemas for high-volume collections containing 50,000+ records, slashing heavy query response times by 90% (from 2 seconds to 200 ms).",
+            "Engineered a robust scheduling API for appointment booking, streamlining operations and reducing manual scheduling efforts by 40%.",
+            "Integrated third-party payment gateways and real-time notification services, creating resilient systems for transaction callbacks and delivery status updates.",
+        ],
+    },
+    {
+        company: "Orbit Digital Solutions Ltd.",
+        role: "Software Engineer Intern",
+        period: "Jun 2022 — Sep 2022",
+        highlights: [
+            "Built robust REST APIs in Node.js and Express for client-facing applications, collaborating directly with frontend teams to deliver end-to-end features.",
+            "Demonstrated rapid technical growth and reliability, resulting in a fast-tracked promotion to a full-time Software Engineer role at the close of the internship.",
         ],
     },
 ];
@@ -133,37 +149,76 @@ export const projects: readonly Project[] = [
 
 export const skillGroups: readonly SkillGroup[] = [
     {
-        category: "Languages",
-        items: ["TypeScript", "JavaScript", "Python", "Node.js"],
+        category: "Languages & Frameworks",
+        items: ["Node.js", "NestJS", "Express.js", "JavaScript", "Python"],
     },
     {
-        category: "Backend",
-        items: ["NestJS", "Express.js", "WebSockets (Socket.io)"],
+        category: "Databases & ORMs",
+        items: ["PostgreSQL", "MongoDB", "TypeORM", "Redis"],
     },
     {
-        category: "Data",
-        items: ["PostgreSQL", "MongoDB", "Redis", "TypeORM"],
-    },
-    {
-        category: "Cloud & DevOps",
+        category: "Architecture & APIs",
         items: [
-            "DigitalOcean",
-            "Docker",
-            "Nginx",
-            "PM2",
-            "Cloudflare",
-            "CI/CD",
+            "RESTful APIs",
+            "Webhooks",
+            "Socket.io",
+            "Omnichannel Integrations (WhatsApp Cloud API)",
         ],
     },
     {
-        category: "AI & ML",
+        category: "AI & Machine Learning",
         items: [
             "RAG Systems",
             "Computer Vision (OCR)",
             "NLP",
             "Deep Learning",
+            "Agentic Workflows (Claude Code, Copilot)",
         ],
     },
+    {
+        category: "Tools & Infrastructure",
+        items: [
+            "Git",
+            "Ubuntu Linux",
+            "DigitalOcean VPS",
+            "Nginx",
+            "PM2",
+            "Firebase",
+            "Hetzner",
+            "Hostinger",
+            "Cloudflare",
+        ],
+    },
+    {
+        category: "Payments & Delivery Integrations",
+        items: [
+            "Stripe",
+            "SSLCommerz",
+            "bKash",
+            "AlinmaPay",
+            "Pathao",
+            "Steadfast",
+        ],
+    },
+];
+
+export const education: readonly EducationItem[] = [
+    {
+        degree: "Master of Science (MS), Computer Science",
+        institution: "American International University-Bangladesh",
+        period: "Graduated Oct 2025",
+        gpa: "3.75",
+    },
+    {
+        degree: "Bachelor of Science (BSc), Computer Science and Engineering",
+        institution: "American International University-Bangladesh",
+        period: "Graduated Sep 2022",
+        gpa: "3.71",
+    },
+];
+
+export const certifications: readonly string[] = [
+    "MongoDB Node.js Developer Path (Mar 2024)",
 ];
 
 // TODO: add `url` (DOI or publisher link) to each entry — the external-link

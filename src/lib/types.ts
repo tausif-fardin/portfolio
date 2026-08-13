@@ -16,6 +16,8 @@ export interface Profile {
     summary: readonly string[];
     email: string;
     location: string;
+    /** Spoken languages, with proficiency. */
+    languages: string;
     resumeUrl: string;
     avatar: string;
     github: string;
@@ -45,6 +47,13 @@ export interface Project {
     linkLabel: string;
     highlights: readonly string[];
     stack: readonly string[];
+}
+
+export interface EducationItem {
+    degree: string;
+    institution: string;
+    period: string;
+    gpa: string;
 }
 
 export interface SkillGroup {

@@ -30,6 +30,12 @@ export function Contact() {
                             {profile.location}
                         </dd>
                     </div>
+                    <div>
+                        <dt className="eyebrow">Languages</dt>
+                        <dd className="mt-1.5 text-[15px] text-muted">
+                            {profile.languages}
+                        </dd>
+                    </div>
                 </dl>
 
                 <SocialLinks className="mt-7 -ml-2" />
