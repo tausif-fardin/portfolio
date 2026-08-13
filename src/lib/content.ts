@@ -100,50 +100,40 @@ export const experience: readonly ExperienceItem[] = [
     },
 ];
 
+/** Live production systems built at ZAAG SYSTEMS. */
 export const projects: readonly Project[] = [
     {
-        name: "Therapy Station",
-        href: "http://therapystation.org/",
-        linkLabel: "Live site",
-        highlights: [
-            "Built the API layer on the Next.js backend.",
-            "Implemented authentication with NextAuth.",
-            "Wrote the complex MySQL queries behind the booking system.",
-        ],
-        stack: ["JavaScript", "Next.js", "MySQL", "Tailwind CSS", "NextAuth"],
+        name: "Apex Footwear",
+        href: "https://apexfootwearltd.com",
+        role: "Technical Lead",
+        summary:
+            "Backend and admin for a fully dynamic company site — approval workflow, role- and permission-based access control, and video optimization for faster loading.",
     },
     {
-        name: "One Piece E-commerce — Admin",
-        href: "https://github.com/tausif-fardin/ecommerce-admin",
-        linkLabel: "Source",
-        highlights: [
-            "Multi-store admin platform with Clerk authentication.",
-            "Management for products, categories, and sub-categories.",
-            "End-to-end order tracking.",
-        ],
-        stack: ["TypeScript", "Next.js", "MySQL", "Tailwind CSS", "shadcn/ui"],
+        name: "Mumuso",
+        href: "https://mumuso.com.bd",
+        role: "Technical Lead",
+        summary: "E-commerce platform with virtual try-on.",
     },
     {
-        name: "One Piece E-commerce — Storefront",
-        href: "https://github.com/tausif-fardin/ecommerce-store",
-        linkLabel: "Source",
-        highlights: [
-            "Customer-facing storefront for the admin platform above.",
-            "Email, Google, and Facebook authentication flows.",
-            "Stripe integration for payment processing.",
-        ],
-        stack: ["TypeScript", "Next.js", "MySQL", "Tailwind CSS", "Stripe"],
+        name: "ZaagShop",
+        href: "https://zaagshop.com",
+        role: "Maintainer",
+        summary:
+            "Shopify-like e-commerce site builder. Maintained the platform and shipped new features.",
     },
     {
-        name: "Mitra",
-        href: "https://play.google.com/store/apps/details?id=com.mitra.cygnus",
-        linkLabel: "Google Play",
-        highlights: [
-            "Built the mobile client in React Native.",
-            "Implemented UI components to design specification.",
-            "Integrated backend services alongside the platform team.",
-        ],
-        stack: ["JavaScript", "React Native", "MySQL"],
+        name: "ZaagAI",
+        href: "https://zaag.ai",
+        role: "Contributor",
+        summary:
+            "Added the booking module and integrated the Meta and WhatsApp Cloud APIs.",
+    },
+    {
+        name: "Lawying",
+        href: "https://lawying.es",
+        role: "Backend Lead",
+        summary: "Social platform for lawyers.",
     },
 ];
 

@@ -44,9 +44,9 @@ export interface ExperienceItem {
 export interface Project {
     name: string;
     href: string;
-    linkLabel: string;
-    highlights: readonly string[];
-    stack: readonly string[];
+    /** Displayed as a monospace badge, e.g. "Technical Lead". */
+    role: string;
+    summary: string;
 }
 
 export interface EducationItem {

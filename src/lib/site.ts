@@ -13,7 +13,7 @@ export const SITE_URL =
 export const NAV_ITEMS: readonly NavItem[] = [
     { id: "about", label: "About" },
     { id: "experience", label: "Experience" },
-    { id: "projects", label: "Projects" },
+    { id: "projects", label: "Selected Work" },
     { id: "skills", label: "Skills" },
     { id: "education", label: "Education" },
     { id: "publications", label: "Publications" },
