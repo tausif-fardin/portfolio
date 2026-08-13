@@ -7,7 +7,7 @@ export function Contact() {
     return (
         <Section id="contact" label="Contact">
             <Reveal>
-                <p className="max-w-lg text-[15px] leading-relaxed text-muted sm:text-base">
+                <p className="max-w-measure text-body text-foreground/80">
                     Email is the best way to reach me — for roles,
                     collaborations, or a question about backend architecture.
                 </p>
@@ -18,7 +18,7 @@ export function Contact() {
                         <dd className="mt-1.5">
                             <a
                                 href={`mailto:${profile.email}`}
-                                className="text-[15px] underline decoration-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+                                className="text-body underline decoration-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
                             >
                                 {profile.email}
                             </a>
@@ -26,13 +26,13 @@ export function Contact() {
                     </div>
                     <div>
                         <dt className="eyebrow">Location</dt>
-                        <dd className="mt-1.5 text-[15px] text-muted">
+                        <dd className="mt-1.5 text-body text-muted">
                             {profile.location}
                         </dd>
                     </div>
                     <div>
                         <dt className="eyebrow">Languages</dt>
-                        <dd className="mt-1.5 text-[15px] text-muted">
+                        <dd className="mt-1.5 text-body text-muted">
                             {profile.languages}
                         </dd>
                     </div>

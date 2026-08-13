@@ -13,7 +13,7 @@ function Entry({ publication }: { publication: Publication }) {
     const body = (
         <div className="flex items-start justify-between gap-4">
             <div className="min-w-0">
-                <h3 className="text-pretty text-[15px] font-medium leading-snug tracking-tight">
+                <h3 className="max-w-measure text-pretty text-base font-medium leading-snug tracking-tight">
                     {publication.title}
                 </h3>
                 <p className="mt-1.5 font-mono text-xs uppercase tracking-wider text-muted">
@@ -31,7 +31,7 @@ function Entry({ publication }: { publication: Publication }) {
     );
 
     if (!publication.url) {
-        return <div className="py-5">{body}</div>;
+        return <div className="px-4 py-5">{body}</div>;
     }
 
     return (
@@ -39,9 +39,7 @@ function Entry({ publication }: { publication: Publication }) {
             href={publication.url}
             target="_blank"
             rel="noreferrer noopener"
-            // Square, full-row highlight: matches the divider width exactly so
-            // corners meet the rules flush.
-            className="group block py-5 transition-colors hover:bg-surface"
+            className="group block px-4 py-5 transition-colors hover:bg-surface"
         >
             {body}
         </a>
@@ -52,7 +50,8 @@ export function Publications() {
     return (
         <Section id="publications" label="Publications">
             <Reveal>
-                <ol className="divide-y divide-border border-y border-border">
+                {/* -mx-4 matches the rows' px-4 — see projects.tsx. */}
+                <ol className="-mx-4 divide-y divide-border border-y border-border">
                     {publications.map((publication) => (
                         <li key={publication.title}>
                             <Entry publication={publication} />

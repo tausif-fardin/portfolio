@@ -30,8 +30,18 @@ const config: Config = {
                 border: "hsl(var(--border))",
                 accent: "hsl(var(--accent))",
             },
+            fontSize: {
+                // Named long-form sizes with paired line-heights, so body copy
+                // stops relying on ad-hoc text-[15px] + leading-relaxed pairs.
+                body: ["0.9375rem", { lineHeight: "1.7" }],
+                lead: ["1.0625rem", { lineHeight: "1.6" }],
+            },
             maxWidth: {
                 content: "56rem",
+                // ~70 characters at 15px Inter. Deliberately rem, not ch: `ch`
+                // measures the digit zero, which is wider than Inter's average
+                // lowercase glyph, so 68ch would render nearer 82 characters.
+                measure: "34rem",
             },
             keyframes: {
                 "fade-up": {

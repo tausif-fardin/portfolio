@@ -10,7 +10,7 @@ export function Education() {
                     <li key={item.degree}>
                         <Reveal delay={index * 0.05}>
                             <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                                <h3 className="text-pretty text-base font-medium tracking-tight">
+                                <h3 className="max-w-measure text-pretty text-base font-medium tracking-tight">
                                     {item.degree}
                                 </h3>
                                 <p className="font-mono text-xs uppercase tracking-wider text-muted">
@@ -36,7 +36,7 @@ export function Education() {
                             {certifications.map((certification) => (
                                 <li
                                     key={certification}
-                                    className="text-[15px] text-muted"
+                                    className="text-body text-foreground/80"
                                 >
                                     {certification}
                                 </li>

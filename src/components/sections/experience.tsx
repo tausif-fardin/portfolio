@@ -41,11 +41,11 @@ export function Experience() {
                                     {item.company}
                                 </p>
 
-                                <ul className="mt-4 space-y-2.5">
+                                <ul className="mt-4 max-w-measure space-y-2.5">
                                     {item.highlights.map((highlight) => (
                                         <li
                                             key={highlight}
-                                            className="flex gap-3 text-[15px] leading-relaxed text-muted"
+                                            className="flex gap-3 text-body text-foreground/80"
                                         >
                                             <span
                                                 aria-hidden="true"

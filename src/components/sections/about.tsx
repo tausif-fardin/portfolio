@@ -5,11 +5,15 @@ import { profile } from "@/lib/content";
 export function About() {
     return (
         <Section id="about" label="About">
-            <Reveal className="max-w-2xl space-y-4 text-[15px] leading-relaxed text-muted sm:text-base">
+            <Reveal className="max-w-measure space-y-4">
                 {profile.summary.map((paragraph, index) => (
                     <p
                         key={paragraph}
-                        className={index === 0 ? "text-foreground/90" : undefined}
+                        className={
+                            index === 0
+                                ? "text-lead text-foreground"
+                                : "text-body text-foreground/80"
+                        }
                     >
                         {paragraph}
                     </p>

@@ -13,23 +13,26 @@ export function Projects() {
     return (
         <Section id="projects" label="Selected Work">
             <Reveal>
-                <p className="text-[15px] leading-relaxed text-muted">
+                <p className="max-w-measure text-body text-muted">
                     Production systems built at ZAAG SYSTEMS.
                 </p>
 
-                <ol className="mt-6 divide-y divide-border border-y border-border">
+                {/*
+                  * -mx-4 bleeds the rules outward by exactly the row's px-4, so
+                  * the hover highlight and the divider lines share one width
+                  * while the text stays aligned with the rest of the page.
+                  */}
+                <ol className="-mx-4 mt-6 divide-y divide-border border-y border-border">
                     {projects.map((project) => (
                         <li key={project.name}>
                             <a
                                 href={project.href}
                                 target="_blank"
                                 rel="noreferrer noopener"
-                                // Square, full-row highlight: matches the divider
-                                // width exactly so corners meet the rules flush.
-                                className="group block py-5 transition-colors hover:bg-surface"
+                                className="group block px-4 py-5 transition-colors hover:bg-surface"
                             >
                                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                                    <h3 className="text-[15px] font-medium tracking-tight">
+                                    <h3 className="text-base font-medium tracking-tight">
                                         {project.name}
                                     </h3>
                                     <p className="eyebrow shrink-0">
@@ -46,7 +49,7 @@ export function Projects() {
                                     />
                                 </p>
 
-                                <p className="mt-2.5 text-pretty text-[15px] leading-relaxed text-muted">
+                                <p className="mt-2.5 max-w-measure text-pretty text-body text-foreground/80">
                                     {project.summary}
                                 </p>
                             </a>
