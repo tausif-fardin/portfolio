@@ -14,13 +14,13 @@ export const profile: Profile = {
     name: "Tausif Fardin Sinha",
     shortName: "Tausif Fardin",
     monogram: "TFS",
-    title: "Backend Engineer & System Architect",
+    title: "Full Stack Engineer, Backend-Focused",
     tagline:
-        "Building high-throughput SaaS platforms, e-commerce ecosystems, and AI-integrated applications.",
+        "Building high-throughput SaaS platforms, e-commerce ecosystems, and AI-integrated applications — from schema to deployment.",
     summary: [
-        "Backend Engineer and System Architect with 3+ years of experience designing high-throughput SaaS platforms, e-commerce ecosystems, and AI-integrated applications.",
-        "Proven track record leading technical teams, architecting scalable relational and NoSQL databases, and managing end-to-end deployments for enterprise brands.",
-        "I specialize in Node.js ecosystems (NestJS, Express), multi-platform API integrations, and applying machine learning workflows to enhance product capabilities.",
+        "Full Stack Engineer with 3+ years of experience designing high-throughput SaaS platforms, e-commerce ecosystems, and AI-integrated applications. I build complete products — schema and API design, the interface on top, and the infrastructure underneath.",
+        "My depth is backend: Node.js ecosystems (NestJS, Express), scalable relational and NoSQL databases, and multi-platform API integrations, with a track record leading technical teams and owning end-to-end deployments for enterprise brands.",
+        "The rest of the stack comes with it — React, Next.js, and Tailwind on the front end; Docker, Nginx, PM2, and CI/CD on the way to production.",
     ],
     email: "tf.sinha@gmail.com",
     location: "Dhaka, Bangladesh",
@@ -140,7 +140,18 @@ export const projects: readonly Project[] = [
 export const skillGroups: readonly SkillGroup[] = [
     {
         category: "Languages & Frameworks",
-        items: ["Node.js", "NestJS", "Express.js", "JavaScript", "Python"],
+        items: [
+            "Node.js",
+            "NestJS",
+            "Express.js",
+            "TypeScript",
+            "JavaScript",
+            "Python",
+        ],
+    },
+    {
+        category: "Frontend",
+        items: ["React", "Next.js", "Tailwind CSS"],
     },
     {
         category: "Databases & ORMs",

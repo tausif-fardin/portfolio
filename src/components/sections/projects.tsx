@@ -24,7 +24,9 @@ export function Projects() {
                                 href={project.href}
                                 target="_blank"
                                 rel="noreferrer noopener"
-                                className="group -mx-3 block rounded-md px-3 py-5 transition-colors hover:bg-surface"
+                                // Square, full-row highlight: matches the divider
+                                // width exactly so corners meet the rules flush.
+                                className="group block py-5 transition-colors hover:bg-surface"
                             >
                                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                                     <h3 className="text-[15px] font-medium tracking-tight">
@@ -35,7 +37,7 @@ export function Projects() {
                                     </p>
                                 </div>
 
-                                <p className="mt-1.5 flex items-center gap-1 font-mono text-xs text-muted">
+                                <p className="mt-1.5 flex items-center gap-1 font-mono text-xs text-muted transition-colors group-hover:text-accent">
                                     {displayDomain(project.href)}
                                     <ArrowUpRight
                                         aria-hidden="true"

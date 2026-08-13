@@ -4,11 +4,11 @@ import type { NavItem } from "./types";
  * Absolute origin of the deployed site. Used for canonical URLs, the sitemap
  * and Open Graph asset resolution.
  *
- * Set NEXT_PUBLIC_SITE_URL in the deployment environment — the fallback below
- * is only a placeholder for local development.
+ * The default is the live production origin; set NEXT_PUBLIC_SITE_URL only to
+ * override it (preview deployments, a future custom domain).
  */
 export const SITE_URL =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://tausif-fardin.vercel.app";
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://tausifsodyssey.vercel.app";
 
 export const NAV_ITEMS: readonly NavItem[] = [
     { id: "about", label: "About" },

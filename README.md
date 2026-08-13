@@ -1,6 +1,6 @@
 # Portfolio — Tausif Fardin Sinha
 
-Personal portfolio for a Backend Engineer & System Architect. Minimalist,
+Personal portfolio for a backend-focused Full Stack Engineer. Minimalist,
 typography-driven, and static: a single prerendered route with no client-side
 data fetching.
 

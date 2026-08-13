@@ -23,7 +23,7 @@ function Entry({ publication }: { publication: Publication }) {
             {publication.url ? (
                 <ArrowUpRight
                     aria-hidden="true"
-                    className="mt-0.5 h-4 w-4 shrink-0 text-muted transition-colors group-hover:text-foreground"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-muted transition-colors group-hover:text-accent"
                     strokeWidth={2}
                 />
             ) : null}
@@ -39,7 +39,9 @@ function Entry({ publication }: { publication: Publication }) {
             href={publication.url}
             target="_blank"
             rel="noreferrer noopener"
-            className="group -mx-3 block rounded-md px-3 py-5 transition-colors hover:bg-surface"
+            // Square, full-row highlight: matches the divider width exactly so
+            // corners meet the rules flush.
+            className="group block py-5 transition-colors hover:bg-surface"
         >
             {body}
         </a>

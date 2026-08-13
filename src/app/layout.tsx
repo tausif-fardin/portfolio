@@ -25,7 +25,7 @@ const mono = JetBrains_Mono({
 });
 
 const title = `${profile.name} — ${profile.title}`;
-const description = `${profile.title} with 3+ years of experience. ${profile.tagline}`;
+const description = `${profile.title}. ${profile.tagline}`;
 
 /**
  * Static social card. Regenerate it if the name/title in `profile` changes —
@@ -51,11 +51,14 @@ export const metadata: Metadata = {
     creator: profile.name,
     keywords: [
         "Tausif Fardin Sinha",
+        "Full Stack Engineer",
         "Backend Engineer",
         "System Architect",
         "NestJS",
         "Node.js",
         "TypeScript",
+        "React",
+        "Next.js",
         "PostgreSQL",
         "MongoDB",
         "Redis",
