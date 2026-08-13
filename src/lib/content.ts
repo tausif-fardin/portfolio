@@ -63,8 +63,6 @@ export const experience: readonly ExperienceItem[] = [
             "Re-engineered a POS payments backend to ensure graceful degradation during cache outages, improving failure response times from 12.3s to a 56ms fallback.",
             "Verified system readiness at 40x projected peak load with zero ledger drift during extensive load testing.",
             "Architected and deployed a highly scalable bulk email delivery system leveraging Redis-backed queues to process and deliver large volumes of daily emails.",
-            "Developed a custom-domain provisioning feature for a multi-tenant SaaS platform integrating Cloudflare and Namecheap APIs, partial-payment gateways, and per-store analytics.",
-            "Led backend engineering for Apex Footwear, delivering a secure role-based admin portal and optimizing a complex image and video processing pipeline for native iOS playback.",
         ],
     },
     {
@@ -72,7 +70,7 @@ export const experience: readonly ExperienceItem[] = [
         role: "Jr. Backend Developer",
         period: "Apr 2024 — Aug 2025",
         highlights: [
-            "Developed scalable e-commerce backend solutions for clients like Mumuso Bangladesh, integrating local and global services including SSLCommerz, Stripe, Pathao dispatch, and Firebase push notifications.",
+            "Developed scalable e-commerce backend solutions integrating SSLCommerz, Stripe, Pathao dispatch, and Firebase push notifications.",
             "Optimized a legacy PDF generation pipeline by overhauling the core processing logic, reducing generation time by 60% and improving overall system performance.",
             "Modernized deployment workflows by replacing manual release processes with automated CI/CD pipelines.",
             "Managed and monitored production infrastructure across DigitalOcean, Hetzner, and Hostinger to ensure high availability.",
@@ -107,33 +105,35 @@ export const projects: readonly Project[] = [
         href: "https://apexfootwearltd.com",
         role: "Technical Lead",
         summary:
-            "Backend and admin for a fully dynamic company site — approval workflow, role- and permission-based access control, and video optimization for faster loading.",
+            "Backend and admin platform behind a fully content-managed corporate site. Publishing runs through a multi-level, department-by-department sign-off chain layered over role- and permission-based access, so nothing reaches the live site without the right approvals. Rebuilt the image and video pipeline to transcode for native iOS playback and cut page weight.",
     },
     {
         name: "Mumuso",
         href: "https://mumuso.com.bd",
         role: "Technical Lead",
-        summary: "E-commerce platform with virtual try-on.",
+        summary:
+            "Consumer e-commerce platform with virtual try-on. Owned the commerce backend — SSLCommerz and Stripe payments, Pathao dispatch, Firebase push — and integrated the third-party AR try-on SDK, mapping it to the product catalogue and serving its assets.",
     },
     {
         name: "ZaagShop",
         href: "https://zaagshop.com",
-        role: "Maintainer",
+        role: "Core Contributor",
         summary:
-            "Shopify-like e-commerce site builder. Maintained the platform and shipped new features.",
+            "Multi-tenant storefront builder — merchants create and run their own shops, Shopify-style. Shipped custom-domain provisioning that automates DNS and certificate setup through the Cloudflare and Namecheap APIs, terminating TLS at the edge in flexible mode so merchants get a branded HTTPS domain with nothing to buy or renew. Also added partial-payment gateways and per-store analytics.",
     },
     {
         name: "ZaagAI",
         href: "https://zaag.ai",
         role: "Contributor",
         summary:
-            "Added the booking module and integrated the Meta and WhatsApp Cloud APIs.",
+            "AI customer-engagement platform that answers from a business's own content across chat and voice. Built the booking module — detecting booking intent, checking availability, and confirming appointments inside the conversation — and integrated the Meta and WhatsApp Cloud APIs so the same agent runs on the channels customers already message.",
     },
     {
         name: "Lawying",
         href: "https://lawying.es",
         role: "Backend Lead",
-        summary: "Social platform for lawyers.",
+        summary:
+            "Professional social network for Spain's legal community. Led the backend behind the social core — posts, comments, and feed assembly — plus real-time direct messaging and notifications over WebSockets.",
     },
 ];
 
@@ -211,16 +211,18 @@ export const certifications: readonly string[] = [
     "MongoDB Node.js Developer Path (Mar 2024)",
 ];
 
-// TODO: add `url` (DOI or publisher link) to each entry — the external-link
-// affordance renders automatically once a URL is present.
 export const publications: readonly Publication[] = [
     {
         title: "Enhancing Image Captioning with a Multi-Encoder Ensemble Framework",
         venue: "BIM 2025",
+        // Publisher's DOI-backed chapter record, not the SpringerProfessional
+        // aggregator mirror — this is the stable citation target.
+        url: "https://link.springer.com/chapter/10.1007/978-3-032-15346-3_40",
     },
     {
         title: "Stock Market Comparison and Analysis in Preceding and Following Pandemic in Bangladesh using Machine Learning Approaches",
-        venue: "ACM Digital Library",
+        venue: "ICCA 2022, ACM",
         date: "Aug 2022",
+        url: "https://dl.acm.org/doi/10.1145/3542954.3542993",
     },
 ];
