@@ -1,6 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
+import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 
 import { SiteFooter } from "@/components/site-footer";
@@ -11,12 +12,7 @@ import { SITE_URL } from "@/lib/site";
 
 import "./globals.css";
 
-const sans = Inter({
-    subsets: ["latin"],
-    display: "swap",
-    variable: "--font-sans",
-});
-
+// Geist ships self-hosted with the package and exposes --font-geist-sans.
 const mono = JetBrains_Mono({
     subsets: ["latin"],
     display: "swap",
@@ -107,7 +103,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <html
             lang="en"
             suppressHydrationWarning
-            className={`${sans.variable} ${mono.variable}`}
+            className={`${GeistSans.variable} ${mono.variable}`}
         >
             <body className="font-sans">
                 <noscript>
