@@ -16,9 +16,22 @@ export function MobileNav({ activeId }: { activeId: string | null }) {
     const triggerRef = useRef<HTMLButtonElement>(null);
     const panelRef = useRef<HTMLDivElement>(null);
 
+    /** Dismissed without choosing a destination — send focus back to the trigger. */
     const close = useCallback(() => {
         setOpen(false);
         triggerRef.current?.focus();
+    }, []);
+
+    /**
+     * Closed by picking a section. The scroll lock has to come off *synchronously*
+     * here: the effect cleanup below runs after paint, which is too late — the
+     * browser performs the anchor jump as soon as this handler returns, and a
+     * locked body silently swallows it. Focus is left alone so it doesn't yank
+     * the viewport back up to the header mid-scroll.
+     */
+    const closeForNavigation = useCallback(() => {
+        document.body.style.overflow = "";
+        setOpen(false);
     }, []);
 
     // Lock background scrolling while the panel covers the page.
@@ -140,7 +153,7 @@ export function MobileNav({ activeId }: { activeId: string | null }) {
                                         <li key={item.id}>
                                             <a
                                                 href={`#${item.id}`}
-                                                onClick={close}
+                                                onClick={closeForNavigation}
                                                 aria-current={
                                                     activeId === item.id
                                                         ? "true"
