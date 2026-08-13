@@ -1,71 +1,75 @@
-## Overview
+# Portfolio — Tausif Fardin Sinha
 
-This portfolio site is built using **JavaScript** and **CSS**, ensuring a dynamic and engaging user experience. It is fully responsive, providing an optimal viewing experience across all devices.
+Personal portfolio for a Backend Engineer & System Architect. Minimalist,
+typography-driven, and static: a single prerendered route with no client-side
+data fetching.
 
-## Features
+## Tech stack
 
-- **Interactive Design**: Engaging animations and smooth transitions.
-- **Responsive Layout**: Optimized for desktops, tablets, and mobile devices.
-- **Project Showcase**: Highlights my key projects with descriptions, links, and visuals.
-- **Contact Section**: Allows visitors to get in touch easily.
-- **Custom Styling**: Unique and consistent design using CSS.
+| Concern    | Choice                                        |
+| ---------- | --------------------------------------------- |
+| Framework  | Next.js 14 (App Router)                       |
+| Language   | TypeScript (`strict`)                         |
+| Styling    | Tailwind CSS 3.4 with HSL design tokens       |
+| Animation  | Framer Motion (scroll reveals only)           |
+| Icons      | lucide-react                                  |
+| Theming    | next-themes (class strategy)                  |
+| Fonts      | Inter + JetBrains Mono via `next/font`        |
 
-## Tech Stack
+## Getting started
 
-- **JavaScript
-- **CSS
-- **TailwindCSS
+```bash
+npm install
+npm run dev          # http://localhost:3000
+```
 
-## Getting Started
+| Script              | Purpose                          |
+| ------------------- | -------------------------------- |
+| `npm run dev`       | Development server               |
+| `npm run build`     | Production build                 |
+| `npm start`         | Serve the production build       |
+| `npm run lint`      | ESLint (`next/core-web-vitals`)  |
+| `npm run typecheck` | `tsc --noEmit`                   |
 
-You can view the live portfolio site or run it locally by following the steps below:
+## Configuration
 
-### View Live
+Copy `.env.example` to `.env.local` and set the deployed origin — it drives
+canonical URLs, `sitemap.xml`, and Open Graph image resolution:
 
-Visit the live portfolio site at: [Live Portfolio](#)
+```
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+```
 
-### Run Locally
+## Editing content
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/tausif-fardin/portfolio.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd portfolio
-   ```
-3. Install all the required packages:
-   ```bash
-   npm i
-   ```
-4. Run the project using this command:
-   ```bash
-   npm start
-   ```
+All copy lives in **`src/lib/content.ts`** — profile, experience, projects,
+skills, and publications — typed against `src/lib/types.ts`. No content is
+hardcoded in components.
 
-## Contribution
+- Publications accept an optional `url`; the external-link affordance appears
+  automatically once one is set.
+- The current role is flagged with `current: true`, which drives the accent
+  marker on the experience timeline.
+- `public/og.png` is a committed 1200×630 social card. Regenerate it if the
+  name or title changes (it is a static asset rather than a `next/og` route,
+  because `next/og`'s bundled asset paths break on Windows builds).
 
-This is a personal project, but suggestions and feedback are always welcome! If you'd like to contribute:
-1. Fork this repository.
-2. Create a new branch for your changes:
-   ```bash
-   git checkout -b feature-name
-   ```
-3. Commit your changes and push to your fork:
-   ```bash
-   git push origin feature-name
-   ```
-4. Submit a pull request with a detailed description of your changes.
+## Design system
 
-## License
+Tokens are defined once as HSL triplets in `src/app/globals.css` (`:root` and
+`.dark`) and exposed to Tailwind as `background`, `foreground`, `surface`,
+`muted`, `border`, and `accent`. The accent colour is used sparingly: focus
+rings, link hover, the current-role marker, and text selection.
 
-This project is licensed under the [MIT License](LICENSE).
+## Accessibility
+
+Semantic landmarks throughout, a skip link, labelled sections
+(`aria-labelledby`), `aria-label` on every icon-only control, and a visible
+focus ring on all interactive elements. Motion is disabled under
+`prefers-reduced-motion`, and a `<noscript>` rule reveals all scroll-animated
+content when JavaScript is unavailable.
 
 ## Author
 
-- **Tausif Fardin**
-- [GitHub Profile](https://github.com/tausif-fardin)
-
----
-
-Thank you for exploring my portfolio! If you find it interesting, feel free to star ⭐ the repository and share your feedback.
+**Tausif Fardin Sinha** — [GitHub](https://github.com/tausif-fardin) ·
+[LinkedIn](https://linkedin.com/in/tausif-fardin)
