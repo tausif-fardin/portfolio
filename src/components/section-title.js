@@ -1,27 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
-const SectionTitle = ({ title, subtitle, centered = false }) => {
+export default function SectionTitle({ title, subtitle, centered = false }) {
     return (
         <motion.div
-            className={`mb-12 ${centered ? "text-center" : ""}`}
+            className={cn("space-y-3", centered && "text-center")}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-80px" }}
         >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
                 {title}
             </h2>
             {subtitle && (
-                <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl">
+                <p className="text-base text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed">
                     {subtitle}
                 </p>
             )}
-            <div className="h-1 w-20 bg-primary mt-4"></div>
+            {/* Accent bar */}
+            <div className={cn("flex gap-1 pt-1", centered && "justify-center")}>
+                <div className="h-1 w-10 rounded-full gradient-brand" />
+                <div className="h-1 w-4 rounded-full bg-gray-200 dark:bg-gray-700" />
+            </div>
         </motion.div>
     );
-};
-
-export default SectionTitle;
+}

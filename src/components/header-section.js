@@ -1,285 +1,263 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useTheme } from "next-themes";
+import { ArrowDown, Download, Mail, MapPin, Sparkles, Terminal } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ArrowDown, Download, Mail, MapPin, Coffee } from "lucide-react";
 
-const HeaderSection = () => {
-    const [typedText, setTypedText] = useState("");
-    const roles = ["Backend Developer", "API Architect", "Node.js Expert"];
-    const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-    const fullText = roles[currentRoleIndex];
-    const typingSpeed = 80;
-    const deleteSpeed = 40;
-    const pauseTime = 2000;
-    const [isDeleting, setIsDeleting] = useState(false);
-    const { theme } = useTheme();
-    const headerRef = useRef(null);
+const ROLES = ["Backend Developer", "API Architect", "Node.js Expert", "NestJS Specialist"];
 
-    // Stats for visual impact
-    const stats = [
-        { label: "Years Experience", value: "2.5+", icon: Coffee },
-        { label: "Projects Built", value: "10+", icon: Coffee },
-        { label: "APIs Created", value: "15+", icon: Coffee },
-    ];
+const STATS = [
+    { value: "2.5+", label: "Years Exp." },
+    { value: "10+",  label: "Projects"   },
+    { value: "15+",  label: "APIs Built" },
+];
+
+function useTypewriter(words) {
+    const [text, setText]         = useState("");
+    const [wordIdx, setWordIdx]   = useState(0);
+    const [deleting, setDeleting] = useState(false);
 
     useEffect(() => {
-        const typeWriter = () => {
-            if (!isDeleting && typedText === fullText) {
-                // Pause at the end of the text
-                setTimeout(() => setIsDeleting(true), pauseTime);
-                return;
-            } else if (isDeleting && typedText === "") {
-                // Move to next role
-                setIsDeleting(false);
-                setCurrentRoleIndex(
-                    (prevIndex) => (prevIndex + 1) % roles.length
-                );
+        const word = words[wordIdx % words.length];
+        const speed = deleting ? 35 : 75;
+        const pause = 2200;
+
+        const tick = () => {
+            if (!deleting && text === word) {
+                setTimeout(() => setDeleting(true), pause);
                 return;
             }
-
-            // Set the timer for typing or deleting
-            const timeout = setTimeout(
-                () => {
-                    if (isDeleting) {
-                        setTypedText(
-                            fullText.substring(0, typedText.length - 1)
-                        );
-                    } else {
-                        setTypedText(
-                            fullText.substring(0, typedText.length + 1)
-                        );
-                    }
-                },
-                isDeleting ? deleteSpeed : typingSpeed
-            );
-
-            return () => clearTimeout(timeout);
+            if (deleting && text === "") {
+                setDeleting(false);
+                setWordIdx((i) => (i + 1) % words.length);
+                return;
+            }
+            setText(deleting ? word.slice(0, text.length - 1) : word.slice(0, text.length + 1));
         };
 
-        typeWriter();
-    }, [typedText, isDeleting, fullText, currentRoleIndex, roles.length]);
+        const id = setTimeout(tick, speed);
+        return () => clearTimeout(id);
+    }, [text, deleting, wordIdx, words]);
+
+    return text;
+}
+
+/* Floating blob */
+const Blob = ({ className, animate }) => (
+    <motion.div
+        className={cn("absolute rounded-full blur-3xl opacity-20 dark:opacity-10 pointer-events-none", className)}
+        animate={animate}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+    />
+);
+
+export default function HeaderSection() {
+    const typed = useTypewriter(ROLES);
 
     return (
         <section
-            ref={headerRef}
-            className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-800"
+            id="home"
+            className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/40 dark:from-gray-950 dark:via-gray-900 dark:to-blue-950/20"
         >
-            {/* Animated Background Elements */}
-            <div className="absolute inset-0 overflow-hidden">
-                {/* Floating geometric shapes */}
-                <motion.div
-                    className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl"
-                    animate={{
-                        x: [0, 100, 0],
-                        y: [0, -50, 0],
-                        scale: [1, 1.2, 1],
-                    }}
-                    transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "linear",
-                    }}
-                />
-                <motion.div
-                    className="absolute top-40 right-20 w-32 h-32 bg-blue-500/10 rounded-full blur-xl"
-                    animate={{
-                        x: [0, -80, 0],
-                        y: [0, 60, 0],
-                        scale: [1, 0.8, 1],
-                    }}
-                    transition={{
-                        duration: 25,
-                        repeat: Infinity,
-                        ease: "linear",
-                    }}
-                />
-                <motion.div
-                    className="absolute bottom-20 left-1/4 w-24 h-24 bg-purple-500/10 rounded-full blur-xl"
-                    animate={{
-                        x: [0, 60, 0],
-                        y: [0, -40, 0],
-                        scale: [1, 1.1, 1],
-                    }}
-                    transition={{
-                        duration: 18,
-                        repeat: Infinity,
-                        ease: "linear",
-                    }}
-                />
-            </div>
+            {/* Ambient blobs */}
+            <Blob
+                className="w-[500px] h-[500px] bg-blue-400 top-[-100px] left-[-150px]"
+                animate={{ x: [0, 80, 0], y: [0, -40, 0] }}
+            />
+            <Blob
+                className="w-[400px] h-[400px] bg-violet-400 bottom-[-80px] right-[-100px]"
+                animate={{ x: [0, -60, 0], y: [0, 50, 0] }}
+            />
+            <Blob
+                className="w-[300px] h-[300px] bg-pink-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                animate={{ scale: [1, 1.3, 1], opacity: [0.1, 0.15, 0.1] }}
+            />
 
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    {/* Left Content - Text */}
+            {/* Grid overlay */}
+            <div
+                className="absolute inset-0 opacity-[0.025] dark:opacity-[0.04]"
+                style={{
+                    backgroundImage:
+                        "linear-gradient(hsl(221 83% 53%) 1px, transparent 1px), linear-gradient(90deg, hsl(221 83% 53%) 1px, transparent 1px)",
+                    backgroundSize: "60px 60px",
+                }}
+            />
+
+            <div className="container-inner relative z-10 w-full">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center py-24 lg:py-0 min-h-screen lg:min-h-0 lg:h-screen">
+
+                    {/* ── Left: text ── */}
                     <motion.div
-                        className="space-y-8"
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
+                        className="space-y-8 text-center lg:text-left"
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7 }}
                     >
-                        {/* Status Badge */}
+                        {/* Availability badge */}
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-full"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.15 }}
+                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400 text-sm font-medium"
                         >
-                            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                            <span className="text-green-700 dark:text-green-400 text-sm font-medium">
-                                Available for new opportunities
-                            </span>
+                            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                            Available for opportunities
                         </motion.div>
 
-                        {/* Main Heading */}
-                        <div className="space-y-4">
-                            <motion.h1
-                                className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight"
-                                initial={{ opacity: 0, y: 30 }}
+                        {/* Heading */}
+                        <div className="space-y-3">
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3, duration: 0.8 }}
+                                transition={{ delay: 0.2 }}
+                                className="text-gray-500 dark:text-gray-400 text-lg font-medium flex items-center gap-2 justify-center lg:justify-start"
                             >
-                                <span className="block text-gray-900 dark:text-white">
-                                    Hi, I&apos;m
-                                </span>
-                                <span className="block bg-gradient-to-r from-primary via-blue-600 to-purple-600 bg-clip-text text-transparent">
-                                    Tausif Fardin
-                                </span>
+                                <Terminal className="w-4 h-4" />
+                                Hello, World! — I&apos;m
+                            </motion.p>
+
+                            <motion.h1
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3, duration: 0.7 }}
+                                className="text-5xl sm:text-6xl lg:text-7xl font-bold"
+                            >
+                                <span className="text-gray-900 dark:text-white">Tausif</span>
+                                <br />
+                                <span className="gradient-text">Fardin</span>
                             </motion.h1>
 
-                            {/* Animated Role */}
+                            {/* Typewriter role */}
                             <motion.div
-                                className="flex items-center gap-3 text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-700 dark:text-gray-300"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.5 }}
+                                className="text-xl sm:text-2xl font-medium text-gray-600 dark:text-gray-300 flex items-center gap-2 justify-center lg:justify-start h-9"
                             >
-                                <span>I&apos;m a</span>
-                                <span className="text-primary font-semibold min-w-[280px]">
-                                    {typedText}
-                                    <span className="ml-1 w-1 h-8 bg-primary animate-pulse inline-block"></span>
-                                </span>
+                                <span className="text-blue-600 dark:text-blue-400 font-semibold">{typed}</span>
+                                <span className="w-0.5 h-6 bg-blue-500 animate-[pulse_0.9s_step-end_infinite]" />
                             </motion.div>
                         </div>
 
                         {/* Description */}
                         <motion.p
-                            className="text-lg lg:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.6 }}
+                            className="text-gray-600 dark:text-gray-400 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0"
+                        >
+                            I craft robust, scalable backend solutions that power modern applications.
+                            Specializing in <span className="text-blue-600 dark:text-blue-400 font-medium">Node.js</span> ecosystems,
+                            REST &amp; GraphQL <span className="text-violet-600 dark:text-violet-400 font-medium">API architecture</span>, and
+                            database optimization.
+                        </motion.p>
+
+                        {/* Meta */}
+                        <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.7 }}
+                            className="flex items-center gap-5 text-sm text-gray-500 dark:text-gray-400 justify-center lg:justify-start"
                         >
-                            I craft robust, scalable backend solutions that
-                            power modern applications. Specializing in Node.js
-                            ecosystems, API architecture, and database
-                            optimization to bring your ideas to life.
-                        </motion.p>
-
-                        {/* Location & Status */}
-                        <motion.div
-                            className="flex flex-wrap items-center gap-6 text-gray-600 dark:text-gray-400"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.8 }}
-                        >
-                            <div className="flex items-center gap-2">
-                                <MapPin size={18} />
-                                <span>Based in Bangladesh</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <Coffee size={18} />
-                                <span>2.5+ Years Experience</span>
-                            </div>
+                            <span className="flex items-center gap-1.5">
+                                <MapPin className="w-4 h-4" /> Dhaka, Bangladesh
+                            </span>
+                            <span className="flex items-center gap-1.5">
+                                <Sparkles className="w-4 h-4" /> 2.5+ Years Experience
+                            </span>
                         </motion.div>
 
                         {/* CTAs */}
                         <motion.div
-                            className="flex flex-wrap gap-4"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.9 }}
+                            transition={{ delay: 0.8 }}
+                            className="flex flex-wrap gap-4 justify-center lg:justify-start"
                         >
-                            <Link
+                            <a
                                 href="#contact"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    const el = document.getElementById("contact");
+                                    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 72, behavior: "smooth" });
+                                }}
                                 className={cn(
-                                    "group inline-flex items-center gap-2 px-8 py-4 rounded-2xl",
-                                    "bg-gradient-to-r from-primary to-blue-600 text-white font-semibold",
-                                    "hover:shadow-xl hover:shadow-primary/25 transition-all duration-300",
-                                    "hover:-translate-y-1 text-lg"
+                                    "inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white",
+                                    "gradient-brand hover:opacity-90 active:scale-95",
+                                    "shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40",
+                                    "transition-all duration-200"
                                 )}
                             >
-                                <Mail size={20} />
+                                <Mail className="w-4 h-4" />
                                 Let&apos;s Work Together
-                                <ArrowDown
-                                    size={16}
-                                    className="group-hover:translate-y-1 transition-transform"
-                                />
-                            </Link>
-
+                            </a>
                             <Link
                                 href="/resume/Tausif_Resume.pdf"
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 className={cn(
-                                    "group inline-flex items-center gap-2 px-8 py-4 rounded-2xl",
-                                    "border-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300",
-                                    "hover:border-primary hover:text-primary transition-all duration-300",
-                                    "hover:-translate-y-1 font-semibold text-lg backdrop-blur-sm",
-                                    "bg-white/50 dark:bg-gray-800/50"
+                                    "inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold",
+                                    "bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200",
+                                    "border border-gray-200 dark:border-gray-700",
+                                    "hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400",
+                                    "shadow-sm hover:shadow-md transition-all duration-200 active:scale-95"
                                 )}
                             >
-                                <Download size={20} />
-                                Download Resume
+                                <Download className="w-4 h-4" />
+                                Resume
                             </Link>
                         </motion.div>
 
                         {/* Stats */}
                         <motion.div
-                            className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200 dark:border-gray-700"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 1.1 }}
+                            transition={{ delay: 0.95 }}
+                            className="flex gap-8 pt-6 border-t border-gray-200 dark:border-gray-800 justify-center lg:justify-start"
                         >
-                            {stats.map((stat, index) => (
+                            {STATS.map((s, i) => (
                                 <motion.div
-                                    key={stat.label}
-                                    className="text-center"
-                                    initial={{ opacity: 0, y: 20 }}
+                                    key={s.label}
+                                    initial={{ opacity: 0, y: 16 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 1.2 + index * 0.1 }}
+                                    transition={{ delay: 1.05 + i * 0.1 }}
+                                    className="text-center lg:text-left"
                                 >
-                                    <div className="text-2xl lg:text-3xl font-bold text-primary mb-1">
-                                        {stat.value}
-                                    </div>
-                                    <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-                                        {stat.label}
-                                    </div>
+                                    <div className="text-2xl font-bold gradient-text">{s.value}</div>
+                                    <div className="text-xs text-gray-500 dark:text-gray-400 font-medium mt-0.5">{s.label}</div>
                                 </motion.div>
                             ))}
                         </motion.div>
                     </motion.div>
 
-                    {/* Right Content - Enhanced Image Section */}
+                    {/* ── Right: avatar ── */}
                     <motion.div
-                        className="relative flex justify-center lg:justify-end"
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="flex justify-center lg:justify-end"
+                        initial={{ opacity: 0, scale: 0.85 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8, delay: 0.35 }}
                     >
                         <div className="relative">
-                            {/* Background decoration */}
-                            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-blue-500/10 to-purple-500/20 rounded-3xl blur-3xl transform rotate-6 scale-110"></div>
+                            {/* Glow ring */}
+                            <div className="absolute -inset-4 rounded-full gradient-brand opacity-20 blur-2xl animate-pulse" />
 
-                            {/* Main image container */}
-                            <div className="relative w-80 h-80 lg:w-96 lg:h-96">
-                                <div className="absolute inset-0 bg-gradient-to-tr from-primary to-blue-600 rounded-3xl transform rotate-6"></div>
-                                <div className="relative w-full h-full rounded-3xl overflow-hidden transform hover:scale-105 transition-transform duration-500 border-4 border-white dark:border-gray-800 shadow-2xl">
+                            {/* Rotating dashed ring */}
+                            <motion.div
+                                className="absolute -inset-3 rounded-full border-2 border-dashed border-blue-400/40 dark:border-blue-500/30"
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                            />
+
+                            {/* Avatar */}
+                            <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+                                <div className="absolute inset-0 rounded-3xl gradient-brand opacity-70 blur-sm" />
+                                <div className="relative w-full h-full rounded-3xl overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
                                     <Image
                                         src="/dp.jpg"
-                                        alt="Tausif Fardin - Backend Developer"
+                                        alt="Tausif Fardin"
                                         fill
                                         className="object-cover"
                                         priority
@@ -287,65 +265,52 @@ const HeaderSection = () => {
                                 </div>
                             </div>
 
-                            {/* Floating elements */}
+                            {/* Floating badge — experience */}
                             <motion.div
-                                className="absolute -top-4 -right-4 w-16 h-16 bg-white dark:bg-gray-800 rounded-2xl shadow-lg flex items-center justify-center border border-gray-200 dark:border-gray-700"
-                                animate={{
-                                    y: [0, -10, 0],
-                                    rotate: [0, 5, 0],
-                                }}
-                                transition={{
-                                    duration: 3,
-                                    repeat: Infinity,
-                                    ease: "easeInOut",
-                                }}
+                                className="absolute -bottom-4 -left-6 bg-white dark:bg-gray-800 rounded-2xl px-4 py-2.5 shadow-xl border border-gray-100 dark:border-gray-700 flex items-center gap-2"
+                                animate={{ y: [0, -8, 0] }}
+                                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
                             >
-                                <Coffee className="text-primary" size={24} />
+                                <span className="text-2xl">💼</span>
+                                <div>
+                                    <div className="text-xs text-gray-500 dark:text-gray-400">Experience</div>
+                                    <div className="text-sm font-bold text-gray-900 dark:text-white">2.5+ Years</div>
+                                </div>
                             </motion.div>
 
+                            {/* Floating badge — stack */}
                             <motion.div
-                                className="absolute -bottom-4 -left-4 w-20 h-20 bg-primary rounded-2xl shadow-lg flex items-center justify-center text-white font-bold text-lg"
-                                animate={{
-                                    y: [0, 10, 0],
-                                    rotate: [0, -5, 0],
-                                }}
-                                transition={{
-                                    duration: 4,
-                                    repeat: Infinity,
-                                    ease: "easeInOut",
-                                }}
+                                className="absolute -top-4 -right-6 bg-white dark:bg-gray-800 rounded-2xl px-4 py-2.5 shadow-xl border border-gray-100 dark:border-gray-700 flex items-center gap-2"
+                                animate={{ y: [0, 8, 0] }}
+                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                             >
-                                2.5+
+                                <span className="text-2xl">🚀</span>
+                                <div>
+                                    <div className="text-xs text-gray-500 dark:text-gray-400">Stack</div>
+                                    <div className="text-sm font-bold text-gray-900 dark:text-white">Node.js</div>
+                                </div>
                             </motion.div>
                         </div>
                     </motion.div>
                 </div>
             </div>
 
-            {/* Enhanced Scroll Indicator */}
+            {/* Scroll hint */}
             <motion.div
-                className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.5 }}
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.6 }}
             >
-                <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">
-                    Scroll to explore
-                </span>
+                <span className="text-xs text-gray-400 dark:text-gray-600 font-medium tracking-widest uppercase">Scroll</span>
                 <motion.div
                     animate={{ y: [0, 8, 0] }}
-                    transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                    }}
-                    className="p-2 rounded-full border border-gray-300 dark:border-gray-600 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm"
+                    transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+                    className="w-6 h-10 rounded-full border-2 border-gray-300 dark:border-gray-700 flex justify-center pt-2"
                 >
-                    <ArrowDown className="text-primary" size={20} />
+                    <div className="w-1 h-2 rounded-full bg-gray-400 dark:bg-gray-500" />
                 </motion.div>
             </motion.div>
         </section>
     );
-};
-
-export default HeaderSection;
+}

@@ -1,41 +1,50 @@
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import Navbar from "@/components/nav-bar";
 import Footer from "@/components/footer";
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 
-// Modern sans-serif for body text
 const inter = Inter({
     subsets: ["latin"],
     display: "swap",
-    variable: '--font-inter',
+    variable: "--font-inter",
 });
 
-// Elegant serif for headings
-const playfair = Playfair_Display({
+const jakarta = Plus_Jakarta_Sans({
     subsets: ["latin"],
     display: "swap",
-    variable: '--font-playfair',
+    variable: "--font-jakarta",
+    weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata = {
     title: "Tausif Fardin | Backend Developer",
     description:
-        "Portfolio of Tausif Fardin, Backend Developer specializing in Node.js, NestJS, and database technologies",
+        "Portfolio of Tausif Fardin — Backend Developer specializing in Node.js, NestJS, and scalable API architecture.",
+    keywords: ["backend developer", "Node.js", "NestJS", "API", "portfolio", "Tausif Fardin"],
+    openGraph: {
+        title: "Tausif Fardin | Backend Developer",
+        description: "Building robust, scalable backend systems.",
+        type: "website",
+    },
 };
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en" suppressHydrationWarning className={`${inter.variable} ${playfair.variable}`}>
-            <body className={inter.className}>
+        <html
+            lang="en"
+            suppressHydrationWarning
+            className={`${inter.variable} ${jakarta.variable}`}
+        >
+            <body className={`${jakarta.className} antialiased`}>
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <div className="min-h-screen flex flex-col bg-neutral-50 dark:bg-neutral-900">
+                    <div className="min-h-screen flex flex-col bg-background text-foreground">
                         <Navbar />
                         <main className="flex-grow">{children}</main>
                         <Footer />
