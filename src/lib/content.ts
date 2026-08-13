@@ -214,14 +214,14 @@ export const certifications: readonly string[] = [
 export const publications: readonly Publication[] = [
     {
         title: "Enhancing Image Captioning with a Multi-Encoder Ensemble Framework",
-        venue: "BIM 2025",
+        venue: "Big Data, IoT and Machine Learning (BIM 2025), Springer",
         // Publisher's DOI-backed chapter record, not the SpringerProfessional
         // aggregator mirror — this is the stable citation target.
         url: "https://link.springer.com/chapter/10.1007/978-3-032-15346-3_40",
     },
     {
         title: "Stock Market Comparison and Analysis in Preceding and Following Pandemic in Bangladesh using Machine Learning Approaches",
-        venue: "ICCA 2022, ACM",
+        venue: "Computing Advancements (ICCA 2022), ACM",
         date: "Aug 2022",
         url: "https://dl.acm.org/doi/10.1145/3542954.3542993",
     },
