@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-import { MobileNav } from "@/components/mobile-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { profile } from "@/lib/content";
 import { NAV_ITEMS } from "@/lib/site";
@@ -90,7 +89,6 @@ export function SiteHeader() {
 
                 <div className="flex items-center gap-2">
                     <ThemeToggle />
-                    <MobileNav activeId={activeId} />
                 </div>
             </div>
         </header>
